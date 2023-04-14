@@ -28,7 +28,7 @@ text = "
 [node name="LabelDivider" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "
+text = ":
 "
 
 [node name="LabelPlayerRight" type="Label" parent="HBoxContainer"]
