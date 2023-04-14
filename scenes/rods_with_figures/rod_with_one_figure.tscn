@@ -16,7 +16,7 @@ images = Array[CompressedTexture2D]([ExtResource("2_cruie"), ExtResource("3_nuhg
 [node name="Rod" type="Sprite2D" parent="."]
 
 [node name="Area2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1, 36.5)
+scale = Vector2(0.767, 28)
 shape = SubResource("RectangleShape2D_dddne")
 
 [node name="Figure" parent="." instance=ExtResource("4_rwctj")]
