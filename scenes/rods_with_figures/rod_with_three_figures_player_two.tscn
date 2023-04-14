@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm47a38nyln31"]
+
+[ext_resource type="PackedScene" uid="uid://dvp6cwqusuxk7" path="res://scenes/figure/figure.tscn" id="1_7ssr0"]
+
+[node name="RodWithThreeFiguresPlayerTwo" type="Node2D"]
+
+[node name="Rod" type="Sprite2D" parent="."]
+
+[node name="Figure" parent="." instance=ExtResource("1_7ssr0")]
+position = Vector2(0, -300)
+player = 2
+
+[node name="Figure2" parent="." instance=ExtResource("1_7ssr0")]
+player = 2
+
+[node name="Figure3" parent="." instance=ExtResource("1_7ssr0")]
+position = Vector2(0, 300)
+player = 2

@@ -1,16 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dh7tailknjxhw"]
+[gd_scene load_steps=5 format=3 uid="uid://maxjvcwsvjt8"]
 
 [ext_resource type="PackedScene" uid="uid://cgros0gs401b0" path="res://scenes/ball/ball.tscn" id="1_yirbw"]
-[ext_resource type="PackedScene" uid="uid://k6tb2icundgi" path="res://scenes/rods_with_figures/rod_with_three_figures.tscn" id="2_itb26"]
+[ext_resource type="PackedScene" uid="uid://k6tb2icundgi" path="res://scenes/rods_with_figures/rod_with_three_figures_player_one.tscn" id="2_itb26"]
 [ext_resource type="PackedScene" uid="uid://cc4ft5f0g0mm2" path="res://scenes/score/score.tscn" id="3_arhoc"]
+[ext_resource type="PackedScene" uid="uid://bm47a38nyln31" path="res://scenes/rods_with_figures/rod_with_three_figures_player_two.tscn" id="4_46hdm"]
 
 [node name="World" type="Node2D"]
 
 [node name="Ball" parent="." instance=ExtResource("1_yirbw")]
 position = Vector2(1000, 700)
-
-[node name="RodWithThreeFigures" parent="." instance=ExtResource("2_itb26")]
-position = Vector2(500, 500)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -24,3 +22,9 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="RodWithThreeFiguresPlayerOne" parent="." instance=ExtResource("2_itb26")]
+position = Vector2(500, 540)
+
+[node name="RodWithThreeFiguresPlayerTwo" parent="." instance=ExtResource("4_46hdm")]
+position = Vector2(1420, 540)

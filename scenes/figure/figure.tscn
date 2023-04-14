@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vba1"]
 
 [node name="Figure" type="CharacterBody2D"]
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_k8x1b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
