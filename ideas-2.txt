@@ -1,0 +1,8 @@
+Stage 2
+
+Features:
+	- Debug Spielfeld mit Wänden für Kollision Test
+	- Spielstart (Ball in der Mitte, Score Update)
+	Puppe:
+		- Schießen
+	Score (UI)
