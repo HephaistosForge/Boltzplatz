@@ -49,6 +49,22 @@ scale = Vector2(0.2, 9)
 position = Vector2(1935, 540)
 scale = Vector2(0.2, 9)
 
+[node name="Wall5" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
+position = Vector2(23, 440)
+scale = Vector2(0.9, 0.125)
+
+[node name="Wall6" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
+position = Vector2(22, 680)
+scale = Vector2(0.9, 0.125)
+
+[node name="Wall7" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
+position = Vector2(1914, 440)
+scale = Vector2(0.9, 0.125)
+
+[node name="Wall8" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
+position = Vector2(1914, 680)
+scale = Vector2(0.9, 0.125)
+
 [node name="Rods" type="Node" parent="."]
 
 [node name="PlayerLeft" type="Node" parent="Rods"]

@@ -13,4 +13,5 @@ scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_4u0nn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_ge4dn")
