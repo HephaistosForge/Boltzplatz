@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://maxjvcwsvjt8"]
+[gd_scene load_steps=6 format=3 uid="uid://maxjvcwsvjt8"]
 
 [ext_resource type="PackedScene" uid="uid://cgros0gs401b0" path="res://scenes/ball/ball.tscn" id="1_yirbw"]
 [ext_resource type="PackedScene" uid="uid://k6tb2icundgi" path="res://scenes/rods_with_figures/rod_with_three_figures_player_one.tscn" id="2_itb26"]
 [ext_resource type="PackedScene" uid="uid://cc4ft5f0g0mm2" path="res://scenes/score/score.tscn" id="3_arhoc"]
+[ext_resource type="PackedScene" uid="uid://bqttc2t515xwf" path="res://scenes/wall/wall.tscn" id="3_grdse"]
 [ext_resource type="PackedScene" uid="uid://bm47a38nyln31" path="res://scenes/rods_with_figures/rod_with_three_figures_player_two.tscn" id="4_46hdm"]
 
 [node name="World" type="Node2D"]
@@ -28,3 +29,21 @@ position = Vector2(500, 540)
 
 [node name="RodWithThreeFiguresPlayerTwo" parent="." instance=ExtResource("4_46hdm")]
 position = Vector2(1420, 540)
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("3_grdse")]
+position = Vector2(960, 0)
+scale = Vector2(15, 0.2)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("3_grdse")]
+position = Vector2(960, 1080)
+scale = Vector2(15, 0.2)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("3_grdse")]
+position = Vector2(0, 540)
+scale = Vector2(0.2, 9)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("3_grdse")]
+position = Vector2(1920, 540)
+scale = Vector2(0.2, 9)
