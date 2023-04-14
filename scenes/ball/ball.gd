@@ -19,5 +19,5 @@ func _ready():
 	
 	self.apply_impulse(left_up)
 	
-func _process(delta):
+func _process(_delta):
 	$Sprite2D.rotation += rotation_offset
