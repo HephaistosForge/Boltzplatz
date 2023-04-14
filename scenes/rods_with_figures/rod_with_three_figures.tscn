@@ -22,7 +22,7 @@ shape = SubResource("RectangleShape2D_dddne")
 [node name="Figure" parent="." instance=ExtResource("1_ticny")]
 
 [node name="Figure2" parent="." instance=ExtResource("1_ticny")]
-position = Vector2(0, 300)
+position = Vector2(0, 400)
 
 [node name="Figure3" parent="." instance=ExtResource("1_ticny")]
 position = Vector2(0, -300)

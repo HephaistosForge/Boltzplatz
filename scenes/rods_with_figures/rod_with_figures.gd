@@ -44,6 +44,6 @@ func _physics_process(_delta):
 
 func set_player(player: int) -> void:
 	if player == PLAYER_TYPE.PLAYER_LEFT or player == PLAYER_TYPE.PLAYER_RIGHT:
-		_player_type = player
+		_player_type = player as PLAYER_TYPE
 	else:
 		printerr("Invalid player type: %s" % str(_player_type))
