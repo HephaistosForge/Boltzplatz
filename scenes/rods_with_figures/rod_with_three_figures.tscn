@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://k6tb2icundgi"]
+
+[ext_resource type="PackedScene" uid="uid://dvp6cwqusuxk7" path="res://scenes/figure/figure.tscn" id="1_ticny"]
+
+[node name="RodWithThreeFigures" type="Node2D"]
+
+[node name="Rod" type="Sprite2D" parent="."]
+
+[node name="Figure" parent="." instance=ExtResource("1_ticny")]
+position = Vector2(0, -300)
+
+[node name="Figure2" parent="." instance=ExtResource("1_ticny")]
+
+[node name="Figure3" parent="." instance=ExtResource("1_ticny")]
+position = Vector2(0, 300)
