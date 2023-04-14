@@ -1,0 +1,18 @@
+Szenen:
+	- Background
+	- Puppen-Szene (Fußballer-Stange)
+	- Tor
+	- Fußball
+	- Score (UI)
+	
+Features:
+	- Spielstart (Ball in der Mitte, Score Update)
+	Puppe:
+		- Schießen
+		- Bewegen
+	Fußball:
+		- Rollen
+		- Bouncen (Physik)
+		- Reagieren auf geschossen werden
+	Tor:
+		- Interaktion mit Fußball
