@@ -7,7 +7,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dddne"]
 
-[node name="RodWithThreeFigures" type="CharacterBody2D"]
+[node name="RodWithTwoFigures" type="CharacterBody2D"]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_otv8r")
@@ -20,6 +20,7 @@ scale = Vector2(1, 36.5)
 shape = SubResource("RectangleShape2D_dddne")
 
 [node name="Figure" parent="." instance=ExtResource("4_xgm8x")]
+position = Vector2(0, -200)
 
 [node name="Figure2" parent="." instance=ExtResource("4_xgm8x")]
-position = Vector2(0, 300)
+position = Vector2(0, 200)

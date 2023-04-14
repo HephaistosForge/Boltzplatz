@@ -1,17 +1,17 @@
 [gd_scene load_steps=7 format=3 uid="uid://c2rd1wffcq53q"]
 
 [ext_resource type="PackedScene" uid="uid://cgros0gs401b0" path="res://scenes/ball/ball.tscn" id="1_yirbw"]
-[ext_resource type="PackedScene" uid="uid://k6tb2icundgi" path="res://scenes/rods_with_figures/rod_with_three_figures.tscn" id="2_itb26"]
 [ext_resource type="PackedScene" uid="uid://cc4ft5f0g0mm2" path="res://scenes/score/score.tscn" id="3_arhoc"]
 [ext_resource type="PackedScene" uid="uid://bqttc2t515xwf" path="res://scenes/wall/wall.tscn" id="3_grdse"]
 [ext_resource type="PackedScene" uid="uid://cxm1fivt4iyj8" path="res://scenes/background/background.tscn" id="6_msyo4"]
+[ext_resource type="PackedScene" uid="uid://bwlgpfw2654jo" path="res://scenes/rods_with_figures/rod_with_two_figures.tscn" id="6_royt5"]
 [ext_resource type="PackedScene" uid="uid://cq3sbjobha5ku" path="res://scenes/rods_with_figures/rod_with_one_figure.tscn" id="7_0dwlg"]
 
 [node name="World" type="Node2D"]
 
 [node name="Ball" parent="." instance=ExtResource("1_yirbw")]
 z_index = 1
-position = Vector2(1000, 700)
+position = Vector2(960, 540)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -29,42 +29,40 @@ grow_vertical = 1
 
 [node name="Background" parent="." instance=ExtResource("6_msyo4")]
 
-[node name="Walls" type="Node" parent="."]
+[node name="InvisibleWalls" type="Node" parent="."]
 
-[node name="Wall" parent="Walls" instance=ExtResource("3_grdse")]
-position = Vector2(960, 0)
+[node name="Wall" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
+position = Vector2(960, -15)
 scale = Vector2(15, 0.2)
 
-[node name="Wall2" parent="Walls" instance=ExtResource("3_grdse")]
-position = Vector2(960, 1080)
+[node name="Wall2" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
+position = Vector2(960, 1130)
 scale = Vector2(15, 0.2)
 
-[node name="Wall3" parent="Walls" instance=ExtResource("3_grdse")]
-position = Vector2(0, 540)
+[node name="Wall3" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
+position = Vector2(-15, 540)
 scale = Vector2(0.2, 9)
 
-[node name="Wall4" parent="Walls" instance=ExtResource("3_grdse")]
-position = Vector2(1920, 540)
+[node name="Wall4" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
+position = Vector2(1935, 540)
 scale = Vector2(0.2, 9)
 
 [node name="Rods" type="Node" parent="."]
 
 [node name="PlayerLeft" type="Node" parent="Rods"]
 
-[node name="RodWithThreeFigures" parent="Rods/PlayerLeft" instance=ExtResource("2_itb26")]
-z_index = 1
-position = Vector2(600, 540)
-
 [node name="RodWithOneFigure" parent="Rods/PlayerLeft" instance=ExtResource("7_0dwlg")]
 position = Vector2(200, 540)
 
-[node name="PlayerRight" type="Node" parent="Rods"]
+[node name="RodWithTwoFigures" parent="Rods/PlayerLeft" instance=ExtResource("6_royt5")]
+position = Vector2(600, 540)
 
-[node name="RodWithThreeFigures2" parent="Rods/PlayerRight" instance=ExtResource("2_itb26")]
-z_index = 1
-position = Vector2(1320, 540)
-_player_type = 1
+[node name="PlayerRight" type="Node" parent="Rods"]
 
 [node name="RodWithOneFigure" parent="Rods/PlayerRight" instance=ExtResource("7_0dwlg")]
 position = Vector2(1720, 540)
+_player_type = 1
+
+[node name="RodWithTwoFigures" parent="Rods/PlayerRight" instance=ExtResource("6_royt5")]
+position = Vector2(1320, 540)
 _player_type = 1
