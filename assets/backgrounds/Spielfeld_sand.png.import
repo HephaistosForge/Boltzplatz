@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cntkcyxu0g71w"
-path="res://.godot/imported/Spielfeld.png-85ff8dc724ebef25ec381b51f3077b65.ctex"
+uid="uid://8hhmj0w3twnx"
+path="res://.godot/imported/Spielfeld_sand.png-3c2dcd6823619f3c8bdf1ec3c8ba210b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Spielfeld.png"
-dest_files=["res://.godot/imported/Spielfeld.png-85ff8dc724ebef25ec381b51f3077b65.ctex"]
+source_file="res://assets/backgrounds/Spielfeld_sand.png"
+dest_files=["res://.godot/imported/Spielfeld_sand.png-3c2dcd6823619f3c8bdf1ec3c8ba210b.ctex"]
 
 [params]
 

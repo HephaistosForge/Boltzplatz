@@ -1,15 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2rd1wffcq53q"]
+[gd_scene load_steps=17 format=3 uid="uid://xk8mn07l6wu5"]
 
 [ext_resource type="PackedScene" uid="uid://cgros0gs401b0" path="res://scenes/ball/ball.tscn" id="1_yirbw"]
 [ext_resource type="PackedScene" uid="uid://cc4ft5f0g0mm2" path="res://scenes/score/score.tscn" id="3_arhoc"]
 [ext_resource type="PackedScene" uid="uid://bqttc2t515xwf" path="res://scenes/wall/wall.tscn" id="3_grdse"]
 [ext_resource type="Script" path="res://hotkey.gd" id="6_2jd8d"]
-[ext_resource type="PackedScene" uid="uid://cxm1fivt4iyj8" path="res://scenes/background/background.tscn" id="6_msyo4"]
+[ext_resource type="PackedScene" path="res://scenes/background/background.tscn" id="6_msyo4"]
 [ext_resource type="PackedScene" uid="uid://q7wae6af5rl0" path="res://scenes/rods_with_figures/rod_with_two_figures.tscn" id="6_royt5"]
 [ext_resource type="PackedScene" uid="uid://cq3sbjobha5ku" path="res://scenes/rods_with_figures/rod_with_one_figure.tscn" id="7_0dwlg"]
 [ext_resource type="PackedScene" uid="uid://tlptqlhf13g2" path="res://scenes/goal/goal.tscn" id="7_a8vwf"]
 [ext_resource type="PackedScene" uid="uid://1mgb0nw1fxyl" path="res://scenes/level_manager/level_manager.tscn" id="9_l6n64"]
-[ext_resource type="Texture2D" uid="uid://cntkcyxu0g71w" path="res://assets/Spielfeld.png" id="10_iyd22"]
+[ext_resource type="Texture2D" uid="uid://dra2c14jlj7h6" path="res://assets/backgrounds/Spielfeld_grass_stripes.png" id="10_rs8gp"]
+[ext_resource type="Texture2D" uid="uid://dy1ofw5fxrutr" path="res://assets/backgrounds/Spielfeld_grass_stripes2.png" id="11_hkbdj"]
+[ext_resource type="Texture2D" uid="uid://c00lsl0x57nx3" path="res://assets/backgrounds/Spielfeld_ohne_Tor.png" id="12_rewcf"]
+[ext_resource type="Texture2D" uid="uid://d2xhjwj062e2m" path="res://assets/backgrounds/Spielfeld_street.png" id="13_dcxlb"]
+[ext_resource type="Texture2D" uid="uid://c4iie3dslo1eu" path="res://assets/backgrounds/Spielfeld_mud.png" id="13_wagik"]
+[ext_resource type="Texture2D" uid="uid://b0bmt7fb5tf1e" path="res://assets/backgrounds/Spielfeld_ice.png" id="14_yrjap"]
+[ext_resource type="Texture2D" uid="uid://8hhmj0w3twnx" path="res://assets/backgrounds/Spielfeld_sand.png" id="15_57juo"]
 
 [node name="World" type="Node2D"]
 
@@ -109,4 +115,10 @@ goal_position = 1
 script = ExtResource("6_2jd8d")
 
 [node name="LevelManager" parent="." instance=ExtResource("9_l6n64")]
-bg_default = ExtResource("10_iyd22")
+bg_default = ExtResource("10_rs8gp")
+bg_default2 = ExtResource("11_hkbdj")
+bg_default_no_goal = ExtResource("12_rewcf")
+bg_street = ExtResource("13_dcxlb")
+bg_mud = ExtResource("13_wagik")
+bg_ice = ExtResource("14_yrjap")
+bg_sand = ExtResource("15_57juo")

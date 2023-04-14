@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxm1fivt4iyj8"]
+[gd_scene load_steps=2 format=3]
 
-[ext_resource type="Texture2D" uid="uid://cntkcyxu0g71w" path="res://assets/Spielfeld.png" id="1_txvwq"]
+[ext_resource type="Texture2D" uid="uid://cntkcyxu0g71w" path="res://assets/backgrounds/Spielfeld.png" id="1_txvwq"]
 
 [node name="Background" type="TextureRect"]
 texture = ExtResource("1_txvwq")
