@@ -10,21 +10,11 @@ enum GOAL_POSITION {
 	RIGHT
 }
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	if goal_position == GOAL_POSITION.LEFT:
 		score.add_one_to_player_right()
 	elif goal_position == GOAL_POSITION.RIGHT:
 		score.add_one_to_player_left()
 		
 	ball.set_to_position(get_viewport().get_visible_rect().get_center())
-	
