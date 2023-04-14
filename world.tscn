@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://maxjvcwsvjt8"]
+[gd_scene load_steps=6 format=3 uid="uid://ci2eb4183n1x0"]
 
 [ext_resource type="PackedScene" uid="uid://cgros0gs401b0" path="res://scenes/ball/ball.tscn" id="1_yirbw"]
-[ext_resource type="PackedScene" uid="uid://k6tb2icundgi" path="res://scenes/rods_with_figures/rod_with_three_figures_player_one.tscn" id="2_itb26"]
+[ext_resource type="PackedScene" uid="uid://k6tb2icundgi" path="res://scenes/rods_with_figures/rod_with_three_figures.tscn" id="2_itb26"]
 [ext_resource type="PackedScene" uid="uid://cc4ft5f0g0mm2" path="res://scenes/score/score.tscn" id="3_arhoc"]
 [ext_resource type="PackedScene" uid="uid://bqttc2t515xwf" path="res://scenes/wall/wall.tscn" id="3_grdse"]
-[ext_resource type="PackedScene" uid="uid://bm47a38nyln31" path="res://scenes/rods_with_figures/rod_with_three_figures_player_two.tscn" id="4_46hdm"]
 [ext_resource type="PackedScene" uid="uid://cxm1fivt4iyj8" path="res://scenes/background/background.tscn" id="6_msyo4"]
 
 [node name="World" type="Node2D"]
@@ -27,13 +26,7 @@ offset_bottom = 1080.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="RodWithThreeFiguresPlayerOne" parent="." instance=ExtResource("2_itb26")]
-z_index = 1
-position = Vector2(500, 540)
-
-[node name="RodWithThreeFiguresPlayerTwo" parent="." instance=ExtResource("4_46hdm")]
-z_index = 1
-position = Vector2(1420, 540)
+[node name="Background" parent="." instance=ExtResource("6_msyo4")]
 
 [node name="Walls" type="Node" parent="."]
 
@@ -53,4 +46,13 @@ scale = Vector2(0.2, 9)
 position = Vector2(1920, 540)
 scale = Vector2(0.2, 9)
 
-[node name="Background" parent="." instance=ExtResource("6_msyo4")]
+[node name="Rods" type="Node" parent="."]
+
+[node name="RodWithThreeFigures" parent="Rods" instance=ExtResource("2_itb26")]
+z_index = 1
+position = Vector2(500, 540)
+
+[node name="RodWithThreeFigures2" parent="Rods" instance=ExtResource("2_itb26")]
+z_index = 1
+position = Vector2(1420, 540)
+_player_type = 1
