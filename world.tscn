@@ -33,35 +33,43 @@ grow_vertical = 1
 
 [node name="InvisibleWalls" type="Node" parent="."]
 
-[node name="Wall" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
-position = Vector2(960, -15)
+[node name="WallTop" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
+position = Vector2(960, 70)
 scale = Vector2(15, 0.2)
 
-[node name="Wall2" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
-position = Vector2(960, 1130)
+[node name="WallBottom" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
+position = Vector2(960, 1051)
 scale = Vector2(15, 0.2)
 
-[node name="Wall3" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
-position = Vector2(-15, 540)
-scale = Vector2(0.2, 9)
+[node name="WallLeftTop" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
+position = Vector2(74, 257)
+scale = Vector2(0.15, 3)
 
-[node name="Wall4" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
-position = Vector2(1935, 540)
-scale = Vector2(0.2, 9)
+[node name="WallLeftBottom" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
+position = Vector2(74, 867)
+scale = Vector2(0.15, 3)
 
-[node name="Wall5" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
+[node name="WallRightTop" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
+position = Vector2(1862, 254)
+scale = Vector2(0.15, 3)
+
+[node name="WallRightBottom" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
+position = Vector2(1861, 861)
+scale = Vector2(0.15, 3)
+
+[node name="WallLeftGoalAbove" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
 position = Vector2(23, 440)
 scale = Vector2(0.9, 0.125)
 
-[node name="Wall6" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
+[node name="WallLeftGoalBelow" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
 position = Vector2(22, 680)
 scale = Vector2(0.9, 0.125)
 
-[node name="Wall7" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
+[node name="WallRightGoalAbove" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
 position = Vector2(1914, 440)
 scale = Vector2(0.9, 0.125)
 
-[node name="Wall8" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
+[node name="WallRightGoalBelow" parent="InvisibleWalls" instance=ExtResource("3_grdse")]
 position = Vector2(1914, 680)
 scale = Vector2(0.9, 0.125)
 
