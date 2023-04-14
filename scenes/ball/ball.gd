@@ -2,7 +2,7 @@ extends RigidBody2D
 
 
 @export var _velocity = 1000
-@export var timeout_after_reset: int = 2 # in seconds
+@export var timeout_after_reset = 2 # in seconds
 
 var right_down = Vector2(_velocity, _velocity)
 var right_up = Vector2(_velocity, -_velocity)
@@ -36,9 +36,7 @@ func _integrate_forces(state):
 		_start_moving_after_delay()
 	
 	# Limit min / max speed
-	if state.linear_velocity.length() > _velocity:
-		state.linear_velocity = state.linear_velocity.normalized() * _velocity
-	if state.linear_velocity.length() < _velocity:
+	if state.linear_velocity.length() != _velocity:
 		state.linear_velocity = state.linear_velocity.normalized() * _velocity
 
 
@@ -56,3 +54,7 @@ func _start_moving_after_delay() -> void:
 		await get_tree().create_timer(timeout_after_reset).timeout
 		self.apply_impulse(left_up)
 		is_waiting = false
+
+
+func set_velocity(new_velocity: int) -> void:
+	_velocity = new_velocity
