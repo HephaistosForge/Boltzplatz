@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cc4ft5f0g0mm2"]
+[gd_scene load_steps=2 format=3 uid="uid://cc4ft5f0g0mm2"]
+
+[ext_resource type="Script" path="res://scenes/score/score.gd" id="1_pn7yh"]
 
 [node name="Score" type="Control"]
 layout_mode = 3
@@ -7,3 +9,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_pn7yh")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 15.0
+offset_right = 1346.0
+offset_bottom = 189.0
+theme_override_constants/separation = 200
+
+[node name="LabelPlayerLeft" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "
+"
+
+[node name="LabelDivider" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "
+"
+
+[node name="LabelPlayerRight" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "
+"
