@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci2eb4183n1x0"]
+[gd_scene load_steps=7 format=3 uid="uid://c2rd1wffcq53q"]
 
 [ext_resource type="PackedScene" uid="uid://cgros0gs401b0" path="res://scenes/ball/ball.tscn" id="1_yirbw"]
 [ext_resource type="PackedScene" uid="uid://k6tb2icundgi" path="res://scenes/rods_with_figures/rod_with_three_figures.tscn" id="2_itb26"]
 [ext_resource type="PackedScene" uid="uid://cc4ft5f0g0mm2" path="res://scenes/score/score.tscn" id="3_arhoc"]
 [ext_resource type="PackedScene" uid="uid://bqttc2t515xwf" path="res://scenes/wall/wall.tscn" id="3_grdse"]
 [ext_resource type="PackedScene" uid="uid://cxm1fivt4iyj8" path="res://scenes/background/background.tscn" id="6_msyo4"]
+[ext_resource type="PackedScene" uid="uid://cq3sbjobha5ku" path="res://scenes/rods_with_figures/rod_with_one_figure.tscn" id="7_0dwlg"]
 
 [node name="World" type="Node2D"]
 
@@ -48,11 +49,22 @@ scale = Vector2(0.2, 9)
 
 [node name="Rods" type="Node" parent="."]
 
-[node name="RodWithThreeFigures" parent="Rods" instance=ExtResource("2_itb26")]
-z_index = 1
-position = Vector2(500, 540)
+[node name="PlayerLeft" type="Node" parent="Rods"]
 
-[node name="RodWithThreeFigures2" parent="Rods" instance=ExtResource("2_itb26")]
+[node name="RodWithThreeFigures" parent="Rods/PlayerLeft" instance=ExtResource("2_itb26")]
 z_index = 1
-position = Vector2(1420, 540)
+position = Vector2(600, 540)
+
+[node name="RodWithOneFigure" parent="Rods/PlayerLeft" instance=ExtResource("7_0dwlg")]
+position = Vector2(200, 540)
+
+[node name="PlayerRight" type="Node" parent="Rods"]
+
+[node name="RodWithThreeFigures2" parent="Rods/PlayerRight" instance=ExtResource("2_itb26")]
+z_index = 1
+position = Vector2(1320, 540)
+_player_type = 1
+
+[node name="RodWithOneFigure" parent="Rods/PlayerRight" instance=ExtResource("7_0dwlg")]
+position = Vector2(1720, 540)
 _player_type = 1
