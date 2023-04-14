@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2rd1wffcq53q"]
+[gd_scene load_steps=11 format=3 uid="uid://c2rd1wffcq53q"]
 
 [ext_resource type="PackedScene" uid="uid://cgros0gs401b0" path="res://scenes/ball/ball.tscn" id="1_yirbw"]
 [ext_resource type="PackedScene" uid="uid://cc4ft5f0g0mm2" path="res://scenes/score/score.tscn" id="3_arhoc"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://q7wae6af5rl0" path="res://scenes/rods_with_figures/rod_with_two_figures.tscn" id="6_royt5"]
 [ext_resource type="PackedScene" uid="uid://cq3sbjobha5ku" path="res://scenes/rods_with_figures/rod_with_one_figure.tscn" id="7_0dwlg"]
 [ext_resource type="PackedScene" uid="uid://tlptqlhf13g2" path="res://scenes/goal/goal.tscn" id="7_a8vwf"]
+[ext_resource type="PackedScene" uid="uid://1mgb0nw1fxyl" path="res://scenes/level_manager/level_manager.tscn" id="9_l6n64"]
+[ext_resource type="Texture2D" uid="uid://cntkcyxu0g71w" path="res://assets/Spielfeld.png" id="10_iyd22"]
 
 [node name="World" type="Node2D"]
 
@@ -105,3 +107,6 @@ goal_position = 1
 
 [node name="Hotkey" type="Node" parent="."]
 script = ExtResource("6_2jd8d")
+
+[node name="LevelManager" parent="." instance=ExtResource("9_l6n64")]
+bg_default = ExtResource("10_iyd22")
