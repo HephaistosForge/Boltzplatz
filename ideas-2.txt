@@ -5,4 +5,7 @@ Features:
 	- Spielstart (Ball in der Mitte, Score Update)
 	Puppe:
 		- Schießen
+		- One way Collision abhängig ob Spieler 1 oder 2 (Ball von hinten ankommend durchlassen)
 	Score (UI)
+		- Labels
+		- Methoden
