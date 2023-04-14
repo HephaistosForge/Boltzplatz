@@ -1,15 +1,13 @@
 extends RigidBody2D
 
 
-@export var initial_velocity = 500
-@export var max_speed = 1000
-@export var min_speed = 400
+@export var _velocity = 1000
 @export var timeout_after_reset: int = 2 # in seconds
 
-var right_down = Vector2(initial_velocity, initial_velocity)
-var right_up = Vector2(initial_velocity, -initial_velocity)
-var left_down = Vector2(-initial_velocity, initial_velocity)
-var left_up = Vector2(-initial_velocity, -initial_velocity)
+var right_down = Vector2(_velocity, _velocity)
+var right_up = Vector2(_velocity, -_velocity)
+var left_down = Vector2(-_velocity, _velocity)
+var left_up = Vector2(-_velocity, -_velocity)
 
 var rotation_offset = 0.02
 
@@ -37,11 +35,11 @@ func _integrate_forces(state):
 		state.transform.origin = _new_position
 		_start_moving_after_delay()
 	
-	if state.linear_velocity.length() > max_speed:
-		state.linear_velocity = state.linear_velocity.normalized() * max_speed
-	
-	if state.linear_velocity.length() < min_speed:
-		state.linear_velocity = state.linear_velocity.normalized() * min_speed
+	# Limit min / max speed
+	if state.linear_velocity.length() > _velocity:
+		state.linear_velocity = state.linear_velocity.normalized() * _velocity
+	if state.linear_velocity.length() < _velocity:
+		state.linear_velocity = state.linear_velocity.normalized() * _velocity
 
 
 func set_to_position(new_position: Vector2) -> void:
