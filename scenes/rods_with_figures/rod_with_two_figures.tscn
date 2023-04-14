@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwlgpfw2654jo"]
+[gd_scene load_steps=6 format=3 uid="uid://q7wae6af5rl0"]
 
 [ext_resource type="Script" path="res://scenes/rods_with_figures/rod_with_figures.gd" id="1_otv8r"]
 [ext_resource type="Texture2D" uid="uid://cridjlb8i528t" path="res://assets/Spieler_blau.png" id="2_kiej3"]
