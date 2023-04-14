@@ -72,3 +72,8 @@ _player_type = 1
 
 [node name="GoalLeft" parent="Goals" instance=ExtResource("7_a8vwf")]
 position = Vector2(57, 560)
+
+[node name="GoalRight" parent="Goals" instance=ExtResource("7_a8vwf")]
+position = Vector2(1864, 560)
+rotation = 3.14159
+goal_position = 1

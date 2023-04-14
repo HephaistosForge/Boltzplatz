@@ -22,7 +22,7 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if goal_position == GOAL_POSITION.LEFT:
-		score.add_one_to_player_left()
-	elif goal_position == GOAL_POSITION.RIGHT:
 		score.add_one_to_player_right()
+	elif goal_position == GOAL_POSITION.RIGHT:
+		score.add_one_to_player_left()
 	
