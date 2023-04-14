@@ -1,18 +1,32 @@
+Initial Prototype
+
 Szenen:
-	- Background
-	- Puppen-Szene (Fußballer-Stange)
-	- Tor
+	- Background X
+	- Puppen-Szene (Fußballer-Stange) X
 	- Fußball
 	- Score (UI)
+	- World (mit Kamera?)
 	
 Features:
 	- Spielstart (Ball in der Mitte, Score Update)
 	Puppe:
 		- Schießen
-		- Bewegen
+		- Bewegen (Spieler 1+2) X
 	Fußball:
-		- Rollen
-		- Bouncen (Physik)
-		- Reagieren auf geschossen werden
+		- Rollen X
+		- Bouncen (Physik) X
+		- Reagieren auf geschossen werden X
 	Tor:
-		- Interaktion mit Fußball
+		- Interaktion mit Fußball (Erstmal nicht)
+
+Grafiken:
+	- Fußball
+	- Hintergrund (Spielfeld)
+	- Puppe ("farbiger Kasten") Prototyp
+	- Stange
+	- Box
+
+
+Godot Projekteinstellungen Todos:
+	[X] 2D skalieren bei Window Resize
+	[X] Input für Spieler 1 und 2
