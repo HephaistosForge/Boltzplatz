@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2rd1wffcq53q"]
+[gd_scene load_steps=8 format=3 uid="uid://c2rd1wffcq53q"]
 
 [ext_resource type="PackedScene" uid="uid://cgros0gs401b0" path="res://scenes/ball/ball.tscn" id="1_yirbw"]
 [ext_resource type="PackedScene" uid="uid://cc4ft5f0g0mm2" path="res://scenes/score/score.tscn" id="3_arhoc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cxm1fivt4iyj8" path="res://scenes/background/background.tscn" id="6_msyo4"]
 [ext_resource type="PackedScene" uid="uid://bwlgpfw2654jo" path="res://scenes/rods_with_figures/rod_with_two_figures.tscn" id="6_royt5"]
 [ext_resource type="PackedScene" uid="uid://cq3sbjobha5ku" path="res://scenes/rods_with_figures/rod_with_one_figure.tscn" id="7_0dwlg"]
+[ext_resource type="PackedScene" uid="uid://tlptqlhf13g2" path="res://scenes/goal/goal.tscn" id="7_a8vwf"]
 
 [node name="World" type="Node2D"]
 
@@ -66,3 +67,8 @@ _player_type = 1
 [node name="RodWithTwoFigures" parent="Rods/PlayerRight" instance=ExtResource("6_royt5")]
 position = Vector2(1320, 540)
 _player_type = 1
+
+[node name="Goals" type="Node" parent="."]
+
+[node name="GoalLeft" parent="Goals" instance=ExtResource("7_a8vwf")]
+position = Vector2(57, 560)
