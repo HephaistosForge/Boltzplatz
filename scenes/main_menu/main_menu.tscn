@@ -32,7 +32,7 @@ Label/styles/normal = SubResource("StyleBoxFlat_28iro")
 size = Vector2(689.269, 508.255)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvv2b"]
-radius = 199.616
+radius = 199.615
 height = 399.231
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v72ym"]
