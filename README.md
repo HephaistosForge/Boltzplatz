@@ -5,13 +5,22 @@ Tag 1
 Robert+Matthias
 
 ## Controls
-Player Left
+### Player Left
 Movement: W, S
+
 Kick: Space
 
-Player Right
+### Player Right
 Movement: Arrow Up, ~ Down
+
 Kick: Enter
 
+### Sonstiges
+
 Reset Ball Debug: R
-Change Level Settings on the fly: Alt
+
+Change Level on the fly: Alt (durchschalten)
+
+### Main Menu
+
+Spieler-Figur anklicken, um ein Spiel zu starten
