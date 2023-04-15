@@ -8,6 +8,7 @@
 
 [node name="Ball" type="RigidBody2D"]
 physics_material_override = ExtResource("1_477oo")
+continuous_cd = 2
 linear_damp_mode = 1
 angular_damp_mode = 1
 script = ExtResource("1_jep6k")
@@ -19,3 +20,7 @@ texture = ExtResource("2_h4s1y")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_fdaxq")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

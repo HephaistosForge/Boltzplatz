@@ -15,6 +15,7 @@ var has_position_update: bool = false
 var is_waiting: bool = false
 
 var _new_position: Vector2
+var center: Vector2
 
 
 func _ready():
@@ -22,7 +23,9 @@ func _ready():
 	
 	self.gravity_scale = 0 # Disable gravity
 	
-	set_to_position(get_viewport().get_visible_rect().get_center()) # Initial position reset
+	center = get_viewport().get_visible_rect().get_center()
+	
+	set_to_position(center) # Initial position reset
 
 
 func _process(_delta):
@@ -45,7 +48,16 @@ func set_to_position(new_position: Vector2) -> void:
 	self.angular_velocity = 0
 	
 	_new_position = new_position
+	
+	_adjust_position()
+	
 	has_position_update = true
+
+
+func _adjust_position() -> void:
+	# Background is not centered perfectly, adjust position
+	_new_position.x += 7.5
+	_new_position.y += 20
 
 
 func _start_moving_after_delay() -> void:
@@ -58,3 +70,8 @@ func _start_moving_after_delay() -> void:
 
 func set_velocity(new_velocity: int) -> void:
 	_velocity = new_velocity
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	# Ball is outside visible area
+	set_to_position(center)
