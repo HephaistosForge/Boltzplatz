@@ -4,10 +4,14 @@ extends RigidBody2D
 @export var _velocity = 1000
 @export var timeout_after_reset = 2 # in seconds
 
+@onready var directions: Array[Vector2] = [right_down, right_up, left_down, left_up]
+
 var right_down = Vector2(_velocity, _velocity)
 var right_up = Vector2(_velocity, -_velocity)
 var left_down = Vector2(-_velocity, _velocity)
 var left_up = Vector2(-_velocity, -_velocity)
+
+var direction: Vector2
 
 var rotation_offset = 0.02
 
@@ -19,7 +23,7 @@ var center: Vector2
 
 
 func _ready():
-	# var rng = RandomNumberGenerator.new() # Todo?: Choose starting vector randomly
+	choose_random_movement_direction()
 	
 	self.gravity_scale = 0 # Disable gravity
 	
@@ -30,6 +34,11 @@ func _ready():
 
 func _process(_delta):
 	$Sprite2D.rotation += rotation_offset
+
+
+func choose_random_movement_direction() -> void:
+	var random_index: int = randi_range(0, directions.size() - 1)
+	direction = directions[random_index]
 
 
 func _integrate_forces(state):
@@ -64,7 +73,10 @@ func _start_moving_after_delay() -> void:
 	if not is_waiting:
 		is_waiting = true
 		await get_tree().create_timer(timeout_after_reset).timeout
-		self.apply_impulse(left_up)
+		
+		choose_random_movement_direction()
+		self.apply_impulse(direction)
+		
 		is_waiting = false
 
 
