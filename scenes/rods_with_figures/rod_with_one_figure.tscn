@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cq3sbjobha5ku"]
+[gd_scene load_steps=8 format=3 uid="uid://cq3sbjobha5ku"]
 
 [ext_resource type="Script" path="res://scenes/rods_with_figures/rod_with_figures.gd" id="1_kdmdm"]
 [ext_resource type="Texture2D" uid="uid://cridjlb8i528t" path="res://assets/Spieler_blau.png" id="2_cruie"]
 [ext_resource type="Texture2D" uid="uid://c871pysj8ohef" path="res://assets/Spieler_rot.png" id="3_nuhgi"]
 [ext_resource type="PackedScene" uid="uid://dvp6cwqusuxk7" path="res://scenes/figure/figure.tscn" id="4_rwctj"]
+[ext_resource type="AudioStream" uid="uid://cbww4jbcmjxjy" path="res://assets/audio/sfx/Kick.mp3" id="5_sanbw"]
+[ext_resource type="Script" path="res://scenes/rods_with_figures/sfx.gd" id="6_1m5vd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dddne"]
 
@@ -20,3 +22,7 @@ scale = Vector2(0.767, 28)
 shape = SubResource("RectangleShape2D_dddne")
 
 [node name="Figure" parent="." instance=ExtResource("4_rwctj")]
+
+[node name="SFXKick" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_sanbw")
+script = ExtResource("6_1m5vd")

@@ -60,6 +60,8 @@ func _physics_process(_delta):
 				tween.tween_property(child.get_node("CollisionShape2D"), "position", kicking_vector, KICKING_SPEED)
 				tween.tween_property(child.get_node("CollisionShape2D"), "position", Vector2.ZERO, KICKING_SPEED)
 		
+		$SFXKick.play_with_random_pitch()
+		
 		can_kick = true
 	
 	velocity = transform.y * input_direction * _movement_speed
