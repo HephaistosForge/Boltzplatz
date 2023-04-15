@@ -62,11 +62,7 @@ func _physics_process(_delta):
 				tween.tween_property(child.get_node("CollisionShape2D"), "position", kicking_vector, KICKING_SPEED)
 				tween.tween_property(child.get_node("CollisionShape2D"), "position", Vector2.ZERO, KICKING_SPEED)
 		
-		var sfx = AudioStreamPlayer2D.new()
-		sfx.stream = ball_kicking_sfx
-		sfx.pitch_scale = randf_range(0.95, 1.25) # Fine tuned for slight sound variation
-		add_child(sfx)
-		sfx.play()
+		Global.create_audio_stream_with_random_pitch(ball_kicking_sfx, 0.95, 1.25) # Fine tuned for slight sound variation
 		
 		can_kick = true
 	

@@ -1,7 +1,5 @@
 extends Node
 
-@export var level_settings: LEVEL_SETTINGS = LEVEL_SETTINGS.DEFAULT
-
 # Backgrounds
 @export var bg_default: CompressedTexture2D
 @export var bg_default2: CompressedTexture2D
@@ -14,36 +12,26 @@ extends Node
 @onready var ball: RigidBody2D = get_parent().get_node("Ball")
 @onready var background: TextureRect = get_parent().get_node("Background")
 
-enum LEVEL_SETTINGS {
-	DEFAULT,
-	DEFAULT2,
-	DEFAULT_NO_GOAL,
-	STREET,
-	MUD,
-	ICE,
-	SAND
-}
-
 
 func _ready():
-	set_level_settings(level_settings)
+	set_level_settings(Global.selected_level_settings)
 
 
 func set_level_settings(level_setting: int) -> void:
-	match level_setting as LEVEL_SETTINGS:
-		LEVEL_SETTINGS.DEFAULT:
+	match level_setting as Global.LEVEL_SETTINGS:
+		Global.LEVEL_SETTINGS.DEFAULT:
 			_update_level_settings(700, bg_default)
-		LEVEL_SETTINGS.DEFAULT2:
+		Global.LEVEL_SETTINGS.DEFAULT2:
 			_update_level_settings(700, bg_default2)
-		LEVEL_SETTINGS.DEFAULT_NO_GOAL:
+		Global.LEVEL_SETTINGS.DEFAULT_NO_GOAL:
 			_update_level_settings(700, bg_default_no_goal)
-		LEVEL_SETTINGS.STREET:
+		Global.LEVEL_SETTINGS.STREET:
 			_update_level_settings(900, bg_street)
-		LEVEL_SETTINGS.MUD:
+		Global.LEVEL_SETTINGS.MUD:
 			_update_level_settings(550, bg_mud)
-		LEVEL_SETTINGS.ICE:
+		Global.LEVEL_SETTINGS.ICE:
 			_update_level_settings(1400, bg_ice)
-		LEVEL_SETTINGS.SAND:
+		Global.LEVEL_SETTINGS.SAND:
 			_update_level_settings(600, bg_sand)
 		_:
 			pass
@@ -55,4 +43,4 @@ func _update_level_settings(new_velocity, background_texture: CompressedTexture2
 
 
 func set_random_level_settings() -> void:
-	set_level_settings(randi_range(0, LEVEL_SETTINGS.size() - 1))
+	set_level_settings(randi_range(0, Global.LEVEL_SETTINGS.size() - 1))

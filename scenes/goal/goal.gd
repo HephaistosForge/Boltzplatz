@@ -18,9 +18,6 @@ func _on_body_entered(_body):
 	elif goal_position == GOAL_POSITION.RIGHT:
 		score.add_one_to_player_left()
 	
-	var sfx = AudioStreamPlayer2D.new()
-	sfx.stream = goal_scoring_sfx
-	add_child(sfx)
-	sfx.play()
+	Global.create_audio_stream(goal_scoring_sfx)
 	
 	ball.set_to_position(get_viewport().get_visible_rect().get_center())
