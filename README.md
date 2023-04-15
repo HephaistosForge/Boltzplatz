@@ -4,6 +4,14 @@
 Tag 1
 Robert+Matthias
 
-### Sources
-Music
-https://www.free-stock-music.com/search.php?cat=&mood=&license=&bpm=&length=&musictype=&usage=credit&keyword=synthwave
+## Controls
+Player Left
+Movement: W, S
+Kick: Space
+
+Player Right
+Movement: Arrow Up, ~ Down
+Kick: Enter
+
+Reset Ball Debug: R
+Change Level Settings on the fly: Alt
