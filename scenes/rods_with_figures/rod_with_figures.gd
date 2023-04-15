@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const IMAGE: String = "Sprite2D"
+const FOOT_IMAGE: String = "FootSprite"
 const UP_PLAYER_LEFT: String = "up_player_left"
 const UP_PLAYER_RIGHT: String = "up_player_right"
 const DOWN_PLAYER_LEFT: String = "down_player_left"
@@ -36,8 +37,10 @@ func _ready():
 			if _player_type == PLAYER_TYPE.PLAYER_LEFT:
 				child.get_node(IMAGE).texture = images[0]
 				child.get_node(IMAGE).rotation_degrees = 180
+				
 			elif _player_type == PLAYER_TYPE.PLAYER_RIGHT:
 				child.get_node(IMAGE).texture = images[1]
+				child.get_node(FOOT_IMAGE).rotation_degrees = 180
 			else:
 				printerr("Player type unrecognised: %s" % str(_player_type))
 			figures.append(child)
@@ -63,8 +66,10 @@ func _physics_process(_delta):
 		for figure in figures:
 			var tween = create_tween()
 			tween.tween_property(figure.get_node("CollisionShape2D"), "position", kicking_vector, KICKING_SPEED)
+			tween.parallel().tween_property(figure.get_node(FOOT_IMAGE), "position", kicking_vector, KICKING_SPEED)
 			tween.tween_callback(self.disable_kickforce)
 			tween.tween_property(figure.get_node("CollisionShape2D"), "position", Vector2.ZERO, KICKING_SPEED)
+			tween.parallel().tween_property(figure.get_node(FOOT_IMAGE), "position", Vector2.ZERO, KICKING_SPEED)
 		
 		can_kick = true
 	

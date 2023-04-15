@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://xk8mn07l6wu5"]
+[gd_scene load_steps=19 format=3 uid="uid://xk8mn07l6wu5"]
 
 [ext_resource type="PackedScene" uid="uid://cgros0gs401b0" path="res://scenes/ball/ball.tscn" id="1_yirbw"]
 [ext_resource type="PackedScene" uid="uid://cc4ft5f0g0mm2" path="res://scenes/score/score.tscn" id="3_arhoc"]
 [ext_resource type="PackedScene" uid="uid://bqttc2t515xwf" path="res://scenes/wall/wall.tscn" id="3_grdse"]
 [ext_resource type="Script" path="res://hotkey.gd" id="6_2jd8d"]
+[ext_resource type="Texture2D" uid="uid://miu8xscsf25i" path="res://assets/Stange.png" id="6_iyhmm"]
 [ext_resource type="PackedScene" uid="uid://dx43d0qsdjl48" path="res://scenes/background/background.tscn" id="6_msyo4"]
 [ext_resource type="PackedScene" uid="uid://q7wae6af5rl0" path="res://scenes/rods_with_figures/rod_with_two_figures.tscn" id="6_royt5"]
 [ext_resource type="PackedScene" uid="uid://cq3sbjobha5ku" path="res://scenes/rods_with_figures/rod_with_one_figure.tscn" id="7_0dwlg"]
@@ -33,7 +34,8 @@ custom_minimum_size = Vector2(1920, 1080)
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 1920.0
+offset_left = 16.0
+offset_right = 1936.0
 offset_bottom = 1080.0
 grow_horizontal = 1
 grow_vertical = 1
@@ -85,27 +87,63 @@ scale = Vector2(0.9, 0.125)
 [node name="PlayerLeft" type="Node" parent="Rods"]
 
 [node name="RodWithOneFigure" parent="Rods/PlayerLeft" instance=ExtResource("7_0dwlg")]
+z_index = 2
 position = Vector2(200, 560)
 
+[node name="Sprite2D" type="Sprite2D" parent="Rods/PlayerLeft/RodWithOneFigure"]
+z_index = -1
+scale = Vector2(1, 2)
+texture = ExtResource("6_iyhmm")
+
 [node name="RodWithTwoFigures" parent="Rods/PlayerLeft" instance=ExtResource("6_royt5")]
+z_index = 2
 position = Vector2(500, 565)
 
+[node name="Sprite2D2" type="Sprite2D" parent="Rods/PlayerLeft/RodWithTwoFigures"]
+z_index = -1
+scale = Vector2(1, 2)
+texture = ExtResource("6_iyhmm")
+
 [node name="RodWithThreeFigures" parent="Rods/PlayerLeft" instance=ExtResource("7_6p2tj")]
+z_index = 2
 position = Vector2(1136, 547)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Rods/PlayerLeft/RodWithThreeFigures"]
+z_index = -1
+scale = Vector2(1, 2)
+texture = ExtResource("6_iyhmm")
 
 [node name="PlayerRight" type="Node" parent="Rods"]
 
 [node name="RodWithOneFigure" parent="Rods/PlayerRight" instance=ExtResource("7_0dwlg")]
+z_index = 2
 position = Vector2(1736, 560)
 _player_type = 1
 
+[node name="Sprite2D4" type="Sprite2D" parent="Rods/PlayerRight/RodWithOneFigure"]
+z_index = -1
+scale = Vector2(1, 2)
+texture = ExtResource("6_iyhmm")
+
 [node name="RodWithTwoFigures" parent="Rods/PlayerRight" instance=ExtResource("6_royt5")]
+z_index = 2
 position = Vector2(1436, 571)
 _player_type = 1
 
+[node name="Sprite2D5" type="Sprite2D" parent="Rods/PlayerRight/RodWithTwoFigures"]
+z_index = -1
+scale = Vector2(1, 2)
+texture = ExtResource("6_iyhmm")
+
 [node name="RodWithThreeFigures" parent="Rods/PlayerRight" instance=ExtResource("7_6p2tj")]
+z_index = 2
 position = Vector2(800, 545)
 _player_type = 1
+
+[node name="Sprite2D6" type="Sprite2D" parent="Rods/PlayerRight/RodWithThreeFigures"]
+z_index = -1
+scale = Vector2(1, 2)
+texture = ExtResource("6_iyhmm")
 
 [node name="Goals" type="Node" parent="."]
 

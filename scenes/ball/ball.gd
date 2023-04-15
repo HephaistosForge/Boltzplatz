@@ -35,10 +35,6 @@ func _ready():
 	apply_torque_impulse(0.01)
 
 
-func _process(_delta):
-	#$Sprite2D.rotation += rotation_offset
-	pass
-
 func choose_random_movement_direction() -> void:
 	var random_index: int = randi_range(0, directions.size() - 1)
 	direction = directions[random_index]
@@ -66,6 +62,7 @@ func set_to_position(new_position: Vector2) -> void:
 	has_position_update = true
 
 
+
 func _adjust_position() -> void:
 	# Background is not centered perfectly, adjust position
 	_new_position.x += 7.5
@@ -79,7 +76,7 @@ func _start_moving_after_delay() -> void:
 		
 		choose_random_movement_direction()
 		self.apply_impulse(direction)
-		
+		apply_torque_impulse(0.01)
 		is_waiting = false
 
 
