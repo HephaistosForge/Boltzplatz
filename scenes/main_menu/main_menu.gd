@@ -3,7 +3,7 @@ extends Control
 const default_continent = preload("res://world.tscn")
 
 
-func _on_dummy_country_button_pressed():
-	get_tree().change_scene_to_packed(default_continent)
-	Global.selected_level_settings = Global.LEVEL_SETTINGS.SAND
-	print("pressed")
+func _process(_delta):
+	if Input.is_action_just_pressed("exit"):
+		get_tree().quit()
+
