@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c6o2ejrr770wn"
+path="res://.godot/imported/Metal Pong From Pan And Pot-SoundBible.com-1588653020.mp3-5ed1190837102a522d217ed60539b4d3.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/Metal Pong From Pan And Pot-SoundBible.com-1588653020.mp3"
+dest_files=["res://.godot/imported/Metal Pong From Pan And Pot-SoundBible.com-1588653020.mp3-5ed1190837102a522d217ed60539b4d3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

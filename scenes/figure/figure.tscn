@@ -4,7 +4,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_48e0b"]
 
-[node name="Figure" type="CharacterBody2D"]
+[node name="Figure" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_2gt8k")
