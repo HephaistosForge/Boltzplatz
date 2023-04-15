@@ -21,6 +21,8 @@ var is_waiting: bool = false
 var _new_position: Vector2
 var center: Vector2
 
+var last_player_touched
+
 
 func _ready():
 	choose_random_movement_direction()

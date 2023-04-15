@@ -76,6 +76,7 @@ func _physics_process(_delta):
 		var collision_object = figure.move_and_collide(Vector2.ZERO, true)
 		if collision_object != null:
 			if collision_object.get_collider().is_in_group("Ball"):
+				collision_object.get_collider().last_player_touched = _player_type
 				var kick_force = kicking_vector
 				if apply_kick_force:
 					# Fine tuned for slight sound variation
