@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcmoetib6jnti"]
+
+[ext_resource type="Theme" uid="uid://d0nyo18rwdv00" path="res://scenes/themes/popup.tres" id="1_u7sv1"]
+[ext_resource type="Script" path="res://scenes/score/popup.gd" id="2_4ht35"]
+[ext_resource type="FontFile" uid="uid://dqqwo6spgxssr" path="res://scenes/themes/Sportfield Varsity-Grunge.otf" id="2_krk40"]
+
+[node name="popup" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.5
+offset_top = -26.0
+offset_right = 63.5
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_u7sv1")
+script = ExtResource("2_4ht35")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="PanelContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="game_over" type="Label" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.227451, 0.294118, 1)
+theme_override_fonts/font = ExtResource("2_krk40")
+theme_override_font_sizes/font_size = 31
+text = "Game is over"
+horizontal_alignment = 1
+
+[node name="winner_is" type="Label" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+text = "<>"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="menu" type="Button" parent="MarginContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "Back to Menu"
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/HBoxContainer/menu" to="." method="_on_menu_pressed"]
