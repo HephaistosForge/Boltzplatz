@@ -7,11 +7,12 @@
 size = Vector2(337, 241)
 
 [node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2(1099, 759)
 script = ExtResource("1_x53sj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lcyc7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -39.5)
 shape = SubResource("RectangleShape2D_dk5c8")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_lcyc7")

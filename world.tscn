@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://xk8mn07l6wu5"]
+[gd_scene load_steps=20 format=3 uid="uid://xk8mn07l6wu5"]
 
 [ext_resource type="PackedScene" uid="uid://cgros0gs401b0" path="res://scenes/ball/ball.tscn" id="1_yirbw"]
 [ext_resource type="PackedScene" uid="uid://cc4ft5f0g0mm2" path="res://scenes/score/score.tscn" id="3_arhoc"]
 [ext_resource type="PackedScene" uid="uid://bqttc2t515xwf" path="res://scenes/wall/wall.tscn" id="3_grdse"]
+[ext_resource type="Script" path="res://scenes/player/Player.gd" id="5_knnto"]
 [ext_resource type="Script" path="res://hotkey.gd" id="6_2jd8d"]
 [ext_resource type="Texture2D" uid="uid://miu8xscsf25i" path="res://assets/Stange.png" id="6_iyhmm"]
 [ext_resource type="PackedScene" uid="uid://dx43d0qsdjl48" path="res://scenes/background/background.tscn" id="6_msyo4"]
@@ -85,6 +86,7 @@ scale = Vector2(0.9, 0.125)
 [node name="Rods" type="Node" parent="."]
 
 [node name="PlayerLeft" type="Node" parent="Rods"]
+script = ExtResource("5_knnto")
 
 [node name="RodWithOneFigure" parent="Rods/PlayerLeft" instance=ExtResource("7_0dwlg")]
 z_index = 2
@@ -114,6 +116,7 @@ scale = Vector2(1, 2)
 texture = ExtResource("6_iyhmm")
 
 [node name="PlayerRight" type="Node" parent="Rods"]
+script = ExtResource("5_knnto")
 
 [node name="RodWithOneFigure" parent="Rods/PlayerRight" instance=ExtResource("7_0dwlg")]
 z_index = 2
