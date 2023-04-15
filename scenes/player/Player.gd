@@ -72,8 +72,8 @@ func increase_kick_power(time):
 			rod.power_up_kick_force = 50
 			for figure in rod.figures:
 				var tween = create_tween()
-				tween.tween_property(figure.get_node("Sprite2D"), "modulate", Color(Color.RED, 0.4), 0.2)
-				tween.tween_property(figure.get_node("FootSprite"), "modulate", Color(Color.RED, 0.4), 0.2)
+				tween.tween_property(figure.get_node("Sprite2D"), "modulate", Color(Color.RED, 0.8), 0.2)
+				tween.tween_property(figure.get_node("FootSprite"), "modulate", Color(Color.RED, 0.8), 0.2)
 	else:
 		kick_power_timer.wait_time = kick_power_timer.time_left + time
 

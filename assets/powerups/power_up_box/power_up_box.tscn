@@ -8,6 +8,7 @@ size = Vector2(337, 241)
 
 [node name="PowerUpBox" type="StaticBody2D"]
 scale = Vector2(0.3, 0.3)
+collision_mask = 4
 script = ExtResource("1_x53sj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
