@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://xk8mn07l6wu5"]
+[gd_scene load_steps=21 format=3 uid="uid://xk8mn07l6wu5"]
 
 [ext_resource type="PackedScene" uid="uid://cgros0gs401b0" path="res://scenes/ball/ball.tscn" id="1_554e4"]
 [ext_resource type="PackedScene" uid="uid://dx43d0qsdjl48" path="res://scenes/background/background.tscn" id="2_xf3i6"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c4iie3dslo1eu" path="res://assets/backgrounds/Spielfeld_mud.png" id="17_nrmpk"]
 [ext_resource type="Texture2D" uid="uid://b0bmt7fb5tf1e" path="res://assets/backgrounds/Spielfeld_ice.png" id="18_v38ye"]
 [ext_resource type="Texture2D" uid="uid://8hhmj0w3twnx" path="res://assets/backgrounds/Spielfeld_sand.png" id="19_6fitr"]
+[ext_resource type="Script" path="res://PowerUpSpawner.gd" id="20_qcogc"]
 
 [node name="World" type="Node2D"]
 
@@ -169,3 +170,13 @@ bg_street = ExtResource("16_owlgb")
 bg_mud = ExtResource("17_nrmpk")
 bg_ice = ExtResource("18_v38ye")
 bg_sand = ExtResource("19_6fitr")
+
+[node name="PowerUpSpawner" type="Node2D" parent="."]
+position = Vector2(1735, 940)
+script = ExtResource("20_qcogc")
+
+[node name="Timer" type="Timer" parent="PowerUpSpawner"]
+wait_time = 30.0
+autostart = true
+
+[connection signal="timeout" from="PowerUpSpawner/Timer" to="PowerUpSpawner" method="_on_timer_timeout"]

@@ -4,9 +4,17 @@ const POWER_UP_PREFAB = preload("res://assets/powerups/power_up.tscn")
 
 var tween
 var power_up
+var touched_by
 
-func _ready():
-	destroy_box()
+
+func _physics_process(_delta: float) -> void:
+	var collision_object = move_and_collide(Vector2.ZERO, true)
+	if collision_object != null:
+		if collision_object.get_collider().is_in_group("Ball"):
+			touched_by = collision_object.get_collider().last_player_touched
+			$CollisionShape2D.disabled = true
+			print(touched_by)
+			destroy_box()
 
 
 func destroy_box():
@@ -26,3 +34,5 @@ func spawn_power_up():
 	tween.tween_property(power_up, "scale", Vector2(1.2, 1.2), 0.4)
 	tween.parallel().tween_property(power_up, "position", Vector2(0,-500), 2)
 	tween.parallel().tween_property(power_up, "modulate", Color(Color.WHITE, 0), 2)
+	power_up.execute(touched_by)
+	
