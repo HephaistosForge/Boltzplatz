@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://xk8mn07l6wu5"]
+[gd_scene load_steps=18 format=3 uid="uid://xk8mn07l6wu5"]
 
 [ext_resource type="PackedScene" uid="uid://cgros0gs401b0" path="res://scenes/ball/ball.tscn" id="1_yirbw"]
 [ext_resource type="PackedScene" uid="uid://cc4ft5f0g0mm2" path="res://scenes/score/score.tscn" id="3_arhoc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dx43d0qsdjl48" path="res://scenes/background/background.tscn" id="6_msyo4"]
 [ext_resource type="PackedScene" uid="uid://q7wae6af5rl0" path="res://scenes/rods_with_figures/rod_with_two_figures.tscn" id="6_royt5"]
 [ext_resource type="PackedScene" uid="uid://cq3sbjobha5ku" path="res://scenes/rods_with_figures/rod_with_one_figure.tscn" id="7_0dwlg"]
+[ext_resource type="PackedScene" uid="uid://k6tb2icundgi" path="res://scenes/rods_with_figures/rod_with_three_figures.tscn" id="7_6p2tj"]
 [ext_resource type="PackedScene" uid="uid://tlptqlhf13g2" path="res://scenes/goal/goal.tscn" id="7_a8vwf"]
 [ext_resource type="PackedScene" uid="uid://1mgb0nw1fxyl" path="res://scenes/level_manager/level_manager.tscn" id="9_l6n64"]
 [ext_resource type="Texture2D" uid="uid://dra2c14jlj7h6" path="res://assets/backgrounds/Spielfeld_grass_stripes.png" id="10_rs8gp"]
@@ -25,8 +26,9 @@ z_index = 1
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
+[node name="Background" parent="." instance=ExtResource("6_msyo4")]
+
 [node name="Score" parent="." instance=ExtResource("3_arhoc")]
-z_index = 1
 custom_minimum_size = Vector2(1920, 1080)
 anchors_preset = 0
 anchor_right = 0.0
@@ -35,8 +37,6 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 1
 grow_vertical = 1
-
-[node name="Background" parent="." instance=ExtResource("6_msyo4")]
 
 [node name="InvisibleWalls" type="Node" parent="."]
 
@@ -88,16 +88,23 @@ scale = Vector2(0.9, 0.125)
 position = Vector2(200, 560)
 
 [node name="RodWithTwoFigures" parent="Rods/PlayerLeft" instance=ExtResource("6_royt5")]
-position = Vector2(600, 560)
+position = Vector2(500, 565)
+
+[node name="RodWithThreeFigures" parent="Rods/PlayerLeft" instance=ExtResource("7_6p2tj")]
+position = Vector2(1136, 547)
 
 [node name="PlayerRight" type="Node" parent="Rods"]
 
 [node name="RodWithOneFigure" parent="Rods/PlayerRight" instance=ExtResource("7_0dwlg")]
-position = Vector2(1720, 560)
+position = Vector2(1736, 560)
 _player_type = 1
 
 [node name="RodWithTwoFigures" parent="Rods/PlayerRight" instance=ExtResource("6_royt5")]
-position = Vector2(1320, 560)
+position = Vector2(1436, 571)
+_player_type = 1
+
+[node name="RodWithThreeFigures" parent="Rods/PlayerRight" instance=ExtResource("7_6p2tj")]
+position = Vector2(800, 545)
 _player_type = 1
 
 [node name="Goals" type="Node" parent="."]

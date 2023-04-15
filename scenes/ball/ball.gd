@@ -30,11 +30,12 @@ func _ready():
 	center = get_viewport().get_visible_rect().get_center()
 	
 	set_to_position(center) # Initial position reset
+	apply_torque_impulse(0.01)
 
 
 func _process(_delta):
-	$Sprite2D.rotation += rotation_offset
-
+	#$Sprite2D.rotation += rotation_offset
+	pass
 
 func choose_random_movement_direction() -> void:
 	var random_index: int = randi_range(0, directions.size() - 1)
