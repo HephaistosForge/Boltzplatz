@@ -19,5 +19,6 @@ func _on_body_entered(_body):
 		score.add_one_to_player_left()
 	
 	Global.create_audio_stream(goal_scoring_sfx)
-	
-	ball.set_to_position(get_viewport().get_visible_rect().get_center())
+		
+	if not ball.game_over:
+		ball.set_to_position(get_viewport().get_visible_rect().get_center())

@@ -23,6 +23,7 @@ var center: Vector2
 
 var last_player_touched
 
+var game_over = false
 
 func _ready():
 	choose_random_movement_direction()
@@ -86,4 +87,6 @@ func set_velocity(new_velocity: int) -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	# Ball is outside visible area
-	set_to_position(center)
+	if not game_over:
+		set_to_position(center)
+
