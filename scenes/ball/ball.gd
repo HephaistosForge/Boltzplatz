@@ -45,7 +45,16 @@ func set_to_position(new_position: Vector2) -> void:
 	self.angular_velocity = 0
 	
 	_new_position = new_position
+	
+	_adjust_position()
+	
 	has_position_update = true
+
+
+func _adjust_position() -> void:
+	# Background is not centered perfectly, adjust position
+	_new_position.x += 7.5
+	_new_position.y += 20
 
 
 func _start_moving_after_delay() -> void:
