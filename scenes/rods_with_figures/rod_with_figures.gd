@@ -14,6 +14,8 @@ const KICKING_SPEED = 0.05 # Speed of collision shape kicking tween; Smaller is 
 @export var images: Array[CompressedTexture2D]
 @export var _player_type: PLAYER_TYPE = PLAYER_TYPE.PLAYER_LEFT 
 
+@onready var ball_kicking_sfx = preload("res://assets/audio/sfx/Kick.mp3")
+
 var input_direction: float = 0.0
 var kicking_vector: Vector2 = Vector2(50, 0)
 
@@ -60,7 +62,11 @@ func _physics_process(_delta):
 				tween.tween_property(child.get_node("CollisionShape2D"), "position", kicking_vector, KICKING_SPEED)
 				tween.tween_property(child.get_node("CollisionShape2D"), "position", Vector2.ZERO, KICKING_SPEED)
 		
-		$SFXKick.play_with_random_pitch()
+		var sfx = AudioStreamPlayer2D.new()
+		sfx.stream = ball_kicking_sfx
+		sfx.pitch_scale = randf_range(0.95, 1.25) # Fine tuned for slight sound variation
+		add_child(sfx)
+		sfx.play()
 		
 		can_kick = true
 	
