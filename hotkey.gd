@@ -1,5 +1,4 @@
 extends Node
-#const main_menu = preload("res://scenes/main_menu/main_menu.tscn")
 
 func _process(_delta):
 	if Input.is_action_just_pressed("reset_ball"):
@@ -12,5 +11,4 @@ func _process(_delta):
 
 	if Input.is_action_just_pressed("exit"):
 		#get_tree().quit()
-		#get_tree().change_scene_to_packed(main_menu)
 		get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
