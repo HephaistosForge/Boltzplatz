@@ -24,3 +24,7 @@ Change Level on the fly: Alt (durchschalten)
 ### Main Menu
 
 Spieler-Figur anklicken, um ein Spiel zu starten
+
+### TODOs
+
+[Team 2 Todos #8](https://github.com/HephaistosForge/MV-Ostergamejam2/issues/8)
