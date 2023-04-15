@@ -6,6 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_48e0b"]
 
 [node name="Figure" type="StaticBody2D"]
+collision_mask = 5
 
 [node name="FootSprite" type="Sprite2D" parent="."]
 position = Vector2(-16, -0.242401)

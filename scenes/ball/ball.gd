@@ -21,7 +21,7 @@ var is_waiting: bool = false
 var _new_position: Vector2
 var center: Vector2
 
-var last_player_touched
+var last_player_touched = Rod.PLAYER_TYPE.PLAYER_LEFT
 
 
 func _ready():

@@ -17,6 +17,14 @@ func add_one_to_player_right():
 	score_player_right += 1
 	_update_ui()
 
+func remove_one_from_player_right():
+	score_player_right -= 1
+	_update_ui()
+	
+func remove_one_from_player_lef():
+	score_player_left -= 1
+	_update_ui()
+
 func reset_score():
 	score_player_left = 0
 	score_player_right = 0

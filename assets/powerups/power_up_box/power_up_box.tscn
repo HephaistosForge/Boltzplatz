@@ -6,8 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dk5c8"]
 size = Vector2(337, 241)
 
-[node name="StaticBody2D" type="StaticBody2D"]
-position = Vector2(1099, 759)
+[node name="PowerUpBox" type="StaticBody2D"]
+scale = Vector2(0.3, 0.3)
 script = ExtResource("1_x53sj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

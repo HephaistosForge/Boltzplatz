@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://xk8mn07l6wu5"]
+[gd_scene load_steps=21 format=3 uid="uid://xk8mn07l6wu5"]
 
 [ext_resource type="PackedScene" uid="uid://cgros0gs401b0" path="res://scenes/ball/ball.tscn" id="1_yirbw"]
 [ext_resource type="PackedScene" uid="uid://cc4ft5f0g0mm2" path="res://scenes/score/score.tscn" id="3_arhoc"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c4iie3dslo1eu" path="res://assets/backgrounds/Spielfeld_mud.png" id="13_wagik"]
 [ext_resource type="Texture2D" uid="uid://b0bmt7fb5tf1e" path="res://assets/backgrounds/Spielfeld_ice.png" id="14_yrjap"]
 [ext_resource type="Texture2D" uid="uid://8hhmj0w3twnx" path="res://assets/backgrounds/Spielfeld_sand.png" id="15_57juo"]
+[ext_resource type="Script" path="res://PowerUpSpawner.gd" id="20_qcogc"]
 
 [node name="World" type="Node2D"]
 
@@ -30,7 +31,7 @@ anchor_mode = 0
 
 [node name="Background" parent="." instance=ExtResource("6_msyo4")]
 
-[node name="Score" parent="." instance=ExtResource("3_arhoc")]
+[node name="Score" parent="." groups=["Score"] instance=ExtResource("3_arhoc")]
 custom_minimum_size = Vector2(1920, 1080)
 anchors_preset = 0
 anchor_right = 0.0
@@ -169,3 +170,13 @@ bg_street = ExtResource("13_dcxlb")
 bg_mud = ExtResource("13_wagik")
 bg_ice = ExtResource("14_yrjap")
 bg_sand = ExtResource("15_57juo")
+
+[node name="PowerUpSpawner" type="Node2D" parent="."]
+position = Vector2(1735, 940)
+script = ExtResource("20_qcogc")
+
+[node name="Timer" type="Timer" parent="PowerUpSpawner"]
+wait_time = 30.0
+autostart = true
+
+[connection signal="timeout" from="PowerUpSpawner/Timer" to="PowerUpSpawner" method="_on_timer_timeout"]
