@@ -1,3 +1,4 @@
+class_name Rod
 extends CharacterBody2D
 
 const IMAGE: String = "Sprite2D"
@@ -25,6 +26,7 @@ var kicking_vector: Vector2 = Vector2(50, 0)
 var is_kicking: bool = false
 var can_kick: bool = true
 var apply_kick_force = false
+var power_up_kick_force = 0
 
 enum PLAYER_TYPE {
 	PLAYER_LEFT,
@@ -86,11 +88,11 @@ func _physics_process(_delta):
 				if apply_kick_force:
 					# Fine tuned for slight sound variation
 					Global.create_audio_stream_with_random_pitch(ball_kicking_sfx, 0.95, 1.25) 
-					kick_force = kick_force * KICK_FORCE_MULTIPLIER
+					kick_force = kick_force * (KICK_FORCE_MULTIPLIER + power_up_kick_force)
 				else:
 					Global.create_audio_stream_with_random_pitch_and_db(ball_kicking_sfx, 0.95, 1.25, -30)
 				collision_object.get_collider().apply_impulse(kick_force)
-	
+
 
 func disable_kickforce():
 	self.apply_kick_force = false
