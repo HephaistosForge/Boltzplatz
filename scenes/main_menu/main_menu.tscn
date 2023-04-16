@@ -1,24 +1,19 @@
-[gd_scene load_steps=29 format=3 uid="uid://c55ldovyi8ncb"]
+[gd_scene load_steps=24 format=3 uid="uid://ddtnikrwruv6m"]
 
 [ext_resource type="Texture2D" uid="uid://8yxahy5q65sm" path="res://assets/Map_full.png" id="1_2alpc"]
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_n8q4q"]
 [ext_resource type="Texture2D" uid="uid://dmx13omx4f6lj" path="res://assets/map/Map_background.png" id="2_bi52e"]
 [ext_resource type="Texture2D" uid="uid://dhu1to13l584y" path="res://assets/Ballface.png" id="2_btrv0"]
 [ext_resource type="Texture2D" uid="uid://cridjlb8i528t" path="res://assets/Spieler_blau.png" id="3_ra8g4"]
-[ext_resource type="Script" path="res://scenes/main_menu/europe.gd" id="6_rh3y7"]
+[ext_resource type="Script" path="res://scenes/main_menu/ballface.gd" id="5_4kk5k"]
 [ext_resource type="Texture2D" uid="uid://btgiapv1yudpx" path="res://assets/map/europe.png" id="7_0cckr"]
-[ext_resource type="Script" path="res://scenes/main_menu/africa.gd" id="8_3mc74"]
 [ext_resource type="Texture2D" uid="uid://cscvm6j2iv3ma" path="res://assets/map/asia.png" id="8_5bll3"]
-[ext_resource type="Script" path="res://scenes/main_menu/asia.gd" id="8_ioksg"]
 [ext_resource type="Texture2D" uid="uid://cdlpkrfgrgdd6" path="res://assets/map/africa.png" id="9_b8qbb"]
-[ext_resource type="Script" path="res://scenes/main_menu/australia.gd" id="9_nb7ur"]
 [ext_resource type="Texture2D" uid="uid://dbr2blg8r1dus" path="res://assets/map/australia.png" id="10_p76nm"]
-[ext_resource type="Script" path="res://scenes/main_menu/south_america.gd" id="11_016x6"]
 [ext_resource type="Texture2D" uid="uid://yrmn5ygjv5lq" path="res://assets/map/south_america.png" id="11_d2suc"]
-[ext_resource type="Script" path="res://scenes/main_menu/antarctica.gd" id="11_q40h0"]
-[ext_resource type="Script" path="res://scenes/main_menu/north_america.gd" id="12_37obt"]
 [ext_resource type="Texture2D" uid="uid://bijoyb6hrruf" path="res://assets/map/antarctica.png" id="12_hl7v5"]
 [ext_resource type="Texture2D" uid="uid://cpta5pvuktpsx" path="res://assets/map/north_america.png" id="13_8jprx"]
+[ext_resource type="Script" path="res://scenes/main_menu/continent.gd" id="18_a71df"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28iro"]
 bg_color = Color(0.933333, 0.933333, 0.933333, 1)
@@ -39,7 +34,7 @@ height = 399.231
 size = Vector2(383, 333)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jkvqx"]
-radius = 128.389
+radius = 152.398
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xaaui"]
 radius = 86.8385
@@ -77,12 +72,14 @@ texture = ExtResource("1_2alpc")
 
 [node name="Ballface" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 773.0
-offset_top = 745.0
-offset_right = 1093.0
-offset_bottom = 1065.0
+offset_left = 684.0
+offset_top = 694.0
+offset_right = 1004.0
+offset_bottom = 1014.0
 scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(167.963, 147.963)
 texture = ExtResource("2_btrv0")
+script = ExtResource("5_4kk5k")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -103,35 +100,35 @@ offset_bottom = 470.0
 texture_normal = ExtResource("3_ra8g4")
 
 [node name="asia" type="Area2D" parent="."]
-position = Vector2(1020, 244)
-script = ExtResource("8_ioksg")
+position = Vector2(1480, 343)
+script = ExtResource("18_a71df")
+level_settings = 1
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="asia"]
-position = Vector2(480, 121)
 scale = Vector2(1.87081, 1.67619)
 texture = ExtResource("8_5bll3")
+offset = Vector2(11.2251, 14.3182)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="asia"]
-position = Vector2(521.5, 110.5)
 scale = Vector2(0.993807, 0.973921)
 shape = SubResource("RectangleShape2D_shxfx")
 
 [node name="africa" type="Area2D" parent="."]
-position = Vector2(1020, 244)
-script = ExtResource("8_3mc74")
+position = Vector2(1004, 566)
+script = ExtResource("18_a71df")
+level_settings = 6
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="africa"]
-position = Vector2(-14.9999, 323)
 scale = Vector2(1.87081, 1.67619)
 texture = ExtResource("9_b8qbb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="africa"]
-position = Vector2(-23.6157, 343.475)
 shape = SubResource("CapsuleShape2D_nvv2b")
 
 [node name="europe" type="Area2D" parent="."]
 position = Vector2(1020, 244)
-script = ExtResource("6_rh3y7")
+script = ExtResource("18_a71df")
+level_settings = 0
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="europe"]
 position = Vector2(-13.5, -13)
@@ -143,61 +140,63 @@ position = Vector2(-15.5, -20.5)
 shape = SubResource("RectangleShape2D_v72ym")
 
 [node name="australia" type="Area2D" parent="."]
-position = Vector2(1020, 244)
-script = ExtResource("9_nb7ur")
+position = Vector2(1681, 730)
+script = ExtResource("18_a71df")
+level_settings = 4
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="australia"]
-position = Vector2(660, 486)
 scale = Vector2(1.87081, 1.67619)
 texture = ExtResource("10_p76nm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="australia"]
-position = Vector2(632.827, 488.558)
+position = Vector2(-2, 13)
 shape = SubResource("CircleShape2D_jkvqx")
 
 [node name="south_america" type="Area2D" parent="."]
-position = Vector2(1020, 244)
+position = Vector2(542, 708)
 scale = Vector2(0.995306, 1.00879)
-script = ExtResource("11_016x6")
+script = ExtResource("18_a71df")
+level_settings = 1
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="south_america"]
-position = Vector2(-481, 458)
 scale = Vector2(1.87081, 1.67619)
 texture = ExtResource("11_d2suc")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="south_america"]
-position = Vector2(-501.677, 460.017)
 scale = Vector2(2, 1)
 shape = SubResource("CapsuleShape2D_xaaui")
 
 [node name="antarctica" type="Area2D" parent="."]
-position = Vector2(1020, 244)
-script = ExtResource("11_q40h0")
+position = Vector2(957, 1066)
+script = ExtResource("18_a71df")
+level_settings = 5
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="antarctica"]
-position = Vector2(-61, 782)
+position = Vector2(0, -39)
 scale = Vector2(1.87081, 1.67619)
 texture = ExtResource("12_hl7v5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="antarctica"]
-position = Vector2(-84.0001, 777.5)
+position = Vector2(0, -42)
 scale = Vector2(13.4, 1)
 shape = SubResource("RectangleShape2D_3dle8")
 
 [node name="north_america" type="Area2D" parent="."]
-position = Vector2(1020, 244)
-script = ExtResource("12_37obt")
+position = Vector2(349, 343)
+script = ExtResource("18_a71df")
 
 [node name="AnimatedSprite2D" type="Sprite2D" parent="north_america"]
-position = Vector2(-614, 26)
 scale = Vector2(2.2314, 2)
 texture = ExtResource("13_8jprx")
+offset = Vector2(25.0963, -36)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="north_america"]
-position = Vector2(-648, -8)
+position = Vector2(24, -82)
 scale = Vector2(110.331, 2.95296)
 shape = SubResource("CapsuleShape2D_yo1jj")
 
+[connection signal="mouse_entered" from="Ballface" to="Ballface" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Ballface" to="Ballface" method="_on_mouse_exited"]
 [connection signal="pressed" from="DummyContinentButton" to="." method="_on_dummy_country_button_pressed"]
 [connection signal="input_event" from="asia" to="asia" method="_on_input_event"]
 [connection signal="mouse_entered" from="asia" to="asia" method="_on_mouse_entered"]
