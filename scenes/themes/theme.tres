@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c1kdyrtvrsdx2"]
+
+[ext_resource type="FontFile" uid="uid://dyi5n4nffgj0l" path="res://scenes/themes/Silkscreen/Silkscreen-Regular.ttf" id="1_svln5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28iro"]
+bg_color = Color(0.933333, 0.933333, 0.933333, 0)
+
+[resource]
+default_font = ExtResource("1_svln5")
+Label/colors/font_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
+Label/font_sizes/font_size = 40
+Label/fonts/font = ExtResource("1_svln5")
+Label/styles/normal = SubResource("StyleBoxFlat_28iro")

@@ -4,12 +4,13 @@ extends Area2D
 @export var level_settings = Global.LEVEL_SETTINGS.STREET
 
 func _on_mouse_entered():
+	get_tree().get_first_node_in_group("audio_click").play()
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2.ONE * 1.05, 0.25) \
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 	tween.parallel().tween_property(self, "rotation", .02, 0.25) \
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
-	tween.parallel().tween_property(self, "modulate", Color(.8, .8, .8), 0.25) \
+	tween.parallel().tween_property(self, "modulate", Color(1, .8, .8), 0.25) \
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 
