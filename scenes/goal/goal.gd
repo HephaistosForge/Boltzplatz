@@ -13,12 +13,16 @@ enum GOAL_POSITION {
 
 
 func _on_body_entered(_body):
+	
+	print_debug(_body)
+			
+	if not ball.game_over:
+		ball.set_to_position(get_viewport().get_visible_rect().get_center())
+	
 	if goal_position == GOAL_POSITION.LEFT:
 		score.add_one_to_player_right()
 	elif goal_position == GOAL_POSITION.RIGHT:
 		score.add_one_to_player_left()
 	
 	Global.create_audio_stream(goal_scoring_sfx)
-		
-	if not ball.game_over:
-		ball.set_to_position(get_viewport().get_visible_rect().get_center())
+

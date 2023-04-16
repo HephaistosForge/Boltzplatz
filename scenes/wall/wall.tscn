@@ -1,8 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqttc2t515xwf"]
 
-[ext_resource type="Texture2D" uid="uid://04nt4qyry8qh" path="res://icon.svg" id="1_ge4dn"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4u0nn"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yx885"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
 
 [node name="Wall" type="StaticBody2D"]
 collision_layer = 3
@@ -14,4 +15,4 @@ shape = SubResource("RectangleShape2D_4u0nn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("1_ge4dn")
+texture = SubResource("CompressedTexture2D_yx885")

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dnfdhoyk3qiek" path="res://assets/Football.png" id="2_h4s1y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fdaxq"]
+radius = 15.5081
 
 [node name="Ball" type="RigidBody2D" groups=["Ball"]]
 collision_layer = 4

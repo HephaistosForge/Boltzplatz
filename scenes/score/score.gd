@@ -52,10 +52,10 @@ func _update_ui():
 		var time = 1
 		var tween = create_tween()
 		
-		var win_multiplier = int(max(score_player_left, score_player_right) < POINTS_TO_WIN)*2
+		var win_multiplier = int(max(score_player_left, score_player_right) >= POINTS_TO_WIN)
 		tween.tween_property(container, "rotation", .05 * changed, time) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
-		tween.parallel().tween_property(label, "scale", Vector2.ONE * 2 * (1+win_multiplier), time) \
+		tween.parallel().tween_property(label, "scale", Vector2.ONE * 3 * (1+win_multiplier), time) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 		var color = Color.BLUE if changed == 1 else Color.RED
 		tween.parallel().tween_property(label, "modulate", color, time) \

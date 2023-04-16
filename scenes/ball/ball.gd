@@ -1,11 +1,16 @@
 extends RigidBody2D
 
+@onready var ball_kicking_sfx = preload("res://assets/audio/sfx/Kick.mp3")
+@onready var bounce_particles = preload("res://scenes/particles/ball_bounce.tscn")
+
+@onready var initial_sprite_scale = $Sprite2D.scale
 
 @export var _velocity = 1000
 @export var timeout_after_reset = 2 # in seconds
 
 var direction: Vector2
 var direction_as_angle: float
+
 
 var rotation_offset = 0.02
 
@@ -47,6 +52,30 @@ func _integrate_forces(state):
 	if game_over:
 		state.linear_velocity = Vector2.ZERO
 		return
+	
+	if state.get_contact_count() > 0:
+		var pos = state.get_contact_local_position(0)
+		var normal = state.get_contact_local_normal(0)
+		var angle = normal.angle()
+
+		var particles = bounce_particles.instantiate()
+		particles.position = position - normal * 25 # global_position + pos.normalized() * 10
+		particles.rotation = angle # global_position.angle_to_point(body.global_position)
+		get_parent().add_child(particles)
+		particles.emitting = true
+		get_tree().create_timer(1).connect("timeout", particles.queue_free)
+		
+		Global.create_audio_stream_with_random_pitch(ball_kicking_sfx, 0.95, 1.25) 
+		
+		var tween = create_tween()
+		var time = .1
+		tween.tween_property($Sprite2D, "scale", initial_sprite_scale * Vector2(1.1, 0.9), time) \
+			.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+		tween.tween_property($Sprite2D, "scale", initial_sprite_scale * Vector2(0.95, 1.05), time) \
+			.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+		tween.tween_property($Sprite2D, "scale", initial_sprite_scale, time) \
+			.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
+
 	
 	if has_position_update:
 		has_position_update = false
@@ -113,3 +142,5 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func _on_score_game_is_over():
 	game_over = true
 	get_tree().paused = true
+
+	

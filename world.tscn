@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d1ux427mm4mwa"]
+[gd_scene load_steps=25 format=3 uid="uid://d1ux427mm4mwa"]
 
 [ext_resource type="PackedScene" uid="uid://cgros0gs401b0" path="res://scenes/ball/ball.tscn" id="1_554e4"]
 [ext_resource type="PackedScene" uid="uid://dx43d0qsdjl48" path="res://scenes/background/background.tscn" id="2_xf3i6"]
@@ -196,16 +196,106 @@ tracks/6/keys = {
 "values": [Vector2(960, 1051)]
 }
 
+[sub_resource type="Animation" id="Animation_4bdey"]
+resource_name = "slide_out"
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rods/PlayerLeft:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.5, 0.297302),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rods/PlayerRight:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.5, 0.297302),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2000)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Goals/GoalRight:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 0.535887),
+"update": 0,
+"values": [Vector2(1864, 560), Vector2(1964, 560)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Goals/GoalLeft:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 0.535887),
+"update": 0,
+"values": [Vector2(57, 560), Vector2(-43, 560)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Score:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.5, 0.450625),
+"update": 0,
+"values": [Vector2(8, 0), Vector2(8, -80)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("InvisibleWalls/WallTop:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.025),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(-847, 70), Vector2(960, 70)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("InvisibleWalls/WallBottom:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.025),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector2(-876, 1051), Vector2(960, 1051)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_quwk7"]
 _data = {
 "RESET": SubResource("Animation_rh66n"),
-"slide_in": SubResource("Animation_kwtjj")
+"slide_in": SubResource("Animation_kwtjj"),
+"slide_out": SubResource("Animation_4bdey")
 }
 
 [node name="World" type="Node2D"]
 
 [node name="Ball" parent="." instance=ExtResource("1_554e4")]
 z_index = 3
+max_contacts_reported = 1
 
 [node name="Pointer" type="Line2D" parent="Ball"]
 z_index = -1
