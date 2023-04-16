@@ -118,8 +118,8 @@ func _start_moving_after_delay() -> void:
 	if first_ball:
 		var ret_val = Global.play_commentary_pregame()
 		first_ball = false
-		if ret_val != null:
-			await Global.commentary_player.finished
+		#if ret_val != null:
+			#await Global.commentary_player.finished
 	if not is_waiting:
 		is_waiting = true
 		choose_random_movement_direction()
