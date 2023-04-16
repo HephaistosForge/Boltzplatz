@@ -301,6 +301,8 @@ size = Vector2(118, 320)
 [node name="Ball" parent="." instance=ExtResource("1_554e4")]
 z_index = 3
 max_contacts_reported = 1
+_velocity = 1000
+timeout_after_reset = 2
 
 [node name="Pointer" type="Line2D" parent="Ball"]
 z_index = -1

@@ -104,6 +104,14 @@ func _adjust_position() -> void:
 	# Background is not centered perfectly, adjust position
 	_new_position.x += 7.5
 	_new_position.y += 20
+	
+
+func _input(event):
+	if event.is_action_pressed("skip_dialog"):
+		Global.commentary_player.stop()
+		Global.commentary_player.emit_signal("finished")
+		# Global.commentary_player.playing = false
+		
 
 
 func _start_moving_after_delay() -> void:
