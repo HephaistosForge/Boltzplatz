@@ -1,39 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc4ft5f0g0mm2"]
+[gd_scene load_steps=4 format=3 uid="uid://cc4ft5f0g0mm2"]
 
+[ext_resource type="Theme" uid="uid://c1kdyrtvrsdx2" path="res://scenes/themes/theme.tres" id="1_jjd6m"]
 [ext_resource type="Script" path="res://scenes/score/score.gd" id="1_pn7yh"]
+[ext_resource type="LabelSettings" uid="uid://cxhfcmn8251s1" path="res://scenes/themes/score_label_settings.tres" id="3_xp5py"]
 
 [node name="Score" type="Control" groups=["Score"]]
+z_index = 100
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_jjd6m")
 script = ExtResource("1_pn7yh")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 556.0
-offset_top = 15.0
 offset_right = 1346.0
-offset_bottom = 73.0
+offset_bottom = 90.0
+pivot_offset = Vector2(394, 31)
 theme_override_constants/separation = 100
 alignment = 1
 
 [node name="LabelPlayerLeft" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "
-"
+text = "0"
+label_settings = ExtResource("3_xp5py")
 
 [node name="LabelDivider" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = ":
-"
+text = ":"
+label_settings = ExtResource("3_xp5py")
 
 [node name="LabelPlayerRight" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "
-"
+text = "0"
+label_settings = ExtResource("3_xp5py")

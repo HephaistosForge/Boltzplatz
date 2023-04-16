@@ -12,6 +12,7 @@ var left_down = Vector2(-_velocity, _velocity)
 var left_up = Vector2(-_velocity, -_velocity)
 
 var direction: Vector2
+var direction_as_angle: float
 
 var rotation_offset = 0.02
 
@@ -38,7 +39,11 @@ func _ready():
 
 func choose_random_movement_direction() -> void:
 	var random_index: int = randi_range(0, directions.size() - 1)
-	direction = directions[random_index]
+	var angle = randf_range(-PI / 4, PI / 4)
+	var possibly_flipped = angle * (-1 if randf() < 0.5 else 1)
+	direction = Vector2(cos(possibly_flipped), sin(possibly_flipped)) * _velocity
+	direction_as_angle = possibly_flipped
+	#direction = directions[random_index]
 
 
 func _integrate_forces(state):
@@ -73,9 +78,19 @@ func _adjust_position() -> void:
 func _start_moving_after_delay() -> void:
 	if not is_waiting:
 		is_waiting = true
+		choose_random_movement_direction()
+		var overturn_angle = direction_as_angle + TAU/4 + TAU * 5
+		$Pointer.scale = Vector2.ONE
+		var tween = create_tween()
+		tween.tween_property($Pointer, "global_rotation", overturn_angle, 1.8) \
+			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+		tween.parallel().tween_property($Pointer, "scale", Vector2.ONE * 1.2, 1.8) \
+			.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_ELASTIC)
+		tween.tween_property($Pointer, "scale", Vector2.ONE * .1, 1) \
+			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+		
 		await get_tree().create_timer(timeout_after_reset).timeout
 		
-		choose_random_movement_direction()
 		self.apply_impulse(direction)
 		apply_torque_impulse(0.01)
 		is_waiting = false

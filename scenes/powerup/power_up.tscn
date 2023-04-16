@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://b136i0nh3efif"]
 
-[ext_resource type="Script" path="res://assets/powerups/power_up.gd" id="1_pfimi"]
+[ext_resource type="Script" path="res://scenes/powerup/power_up.gd" id="1_ej3yy"]
 
 [node name="power_up" type="Sprite2D"]
 modulate = Color(0, 0, 0, 0)
-script = ExtResource("1_pfimi")
+script = ExtResource("1_ej3yy")

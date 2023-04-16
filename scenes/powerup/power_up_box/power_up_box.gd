@@ -1,10 +1,15 @@
 extends StaticBody2D
 
-const POWER_UP_PREFAB = preload("res://assets/powerups/power_up.tscn")
+const POWER_UP_PREFAB = preload("res://scenes/powerup/power_up.tscn")
 
 var tween
 var power_up
 var touched_by
+
+func _ready():
+	var tween = create_tween()
+	tween.tween_property(self, "scale", Vector2.ONE * .3, 1) \
+		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 
 
 func _physics_process(_delta: float) -> void:

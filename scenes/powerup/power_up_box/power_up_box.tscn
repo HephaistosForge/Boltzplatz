@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://devwafmikks3l"]
+
+[ext_resource type="Script" path="res://scenes/powerup/power_up_box/power_up_box.gd" id="1_qa1wg"]
+[ext_resource type="Texture2D" uid="uid://cblacb8ye3j5q" path="res://assets/powerups/chest_1.png" id="2_e460c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dk5c8"]
+size = Vector2(337, 241)
+
+[node name="PowerUpBox" type="StaticBody2D"]
+scale = Vector2(1e-05, 1e-05)
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_qa1wg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_e460c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -39.5)
+shape = SubResource("RectangleShape2D_dk5c8")

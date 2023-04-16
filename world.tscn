@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://xk8mn07l6wu5"]
+[gd_scene load_steps=21 format=3 uid="uid://d1ux427mm4mwa"]
 
 [ext_resource type="PackedScene" uid="uid://cgros0gs401b0" path="res://scenes/ball/ball.tscn" id="1_554e4"]
 [ext_resource type="PackedScene" uid="uid://dx43d0qsdjl48" path="res://scenes/background/background.tscn" id="2_xf3i6"]
@@ -19,12 +19,18 @@
 [ext_resource type="Texture2D" uid="uid://c4iie3dslo1eu" path="res://assets/backgrounds/Spielfeld_mud.png" id="17_nrmpk"]
 [ext_resource type="Texture2D" uid="uid://b0bmt7fb5tf1e" path="res://assets/backgrounds/Spielfeld_ice.png" id="18_v38ye"]
 [ext_resource type="Texture2D" uid="uid://8hhmj0w3twnx" path="res://assets/backgrounds/Spielfeld_sand.png" id="19_6fitr"]
-[ext_resource type="Script" path="res://PowerUpSpawner.gd" id="20_qcogc"]
+[ext_resource type="Script" path="res://scenes/powerup/power_up_spawner.gd" id="20_63u4r"]
 
 [node name="World" type="Node2D"]
 
 [node name="Ball" parent="." instance=ExtResource("1_554e4")]
-z_index = 1
+z_index = 3
+
+[node name="Pointer" type="Line2D" parent="Ball"]
+z_index = -1
+points = PackedVector2Array(0, 0, 0, -100, 10, -80, -10, -80, 0, -100)
+width = 10.037
+end_cap_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -173,10 +179,10 @@ bg_sand = ExtResource("19_6fitr")
 
 [node name="PowerUpSpawner" type="Node2D" parent="."]
 position = Vector2(1735, 940)
-script = ExtResource("20_qcogc")
+script = ExtResource("20_63u4r")
 
 [node name="Timer" type="Timer" parent="PowerUpSpawner"]
-wait_time = 10.0
+wait_time = 30.0
 autostart = true
 
 [connection signal="timeout" from="PowerUpSpawner/Timer" to="PowerUpSpawner" method="_on_timer_timeout"]
