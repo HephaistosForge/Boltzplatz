@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d1ux427mm4mwa"]
+[gd_scene load_steps=24 format=3 uid="uid://d1ux427mm4mwa"]
 
 [ext_resource type="PackedScene" uid="uid://cgros0gs401b0" path="res://scenes/ball/ball.tscn" id="1_554e4"]
 [ext_resource type="PackedScene" uid="uid://dx43d0qsdjl48" path="res://scenes/background/background.tscn" id="2_xf3i6"]
@@ -21,6 +21,187 @@
 [ext_resource type="Texture2D" uid="uid://8hhmj0w3twnx" path="res://assets/backgrounds/Spielfeld_sand.png" id="19_6fitr"]
 [ext_resource type="Script" path="res://scenes/powerup/power_up_spawner.gd" id="20_63u4r"]
 
+[sub_resource type="Animation" id="Animation_kwtjj"]
+resource_name = "slide_in"
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rods/PlayerLeft:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.297302, 1),
+"update": 0,
+"values": [Vector2(0, -2000), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rods/PlayerRight:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.297302, 1),
+"update": 0,
+"values": [Vector2(0, 2000), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Goals/GoalRight:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(0.535887, 1),
+"update": 0,
+"values": [Vector2(1964, 560), Vector2(1864, 560)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Goals/GoalLeft:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(0.535887, 1),
+"update": 0,
+"values": [Vector2(-43, 560), Vector2(57, 560)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Score:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.450625, 1),
+"update": 0,
+"values": [Vector2(8, -80), Vector2(8, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("InvisibleWalls/WallTop:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.975, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-847, 70), Vector2(960, 70)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("InvisibleWalls/WallBottom:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.975, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-876, 1051), Vector2(960, 1051)]
+}
+
+[sub_resource type="Animation" id="Animation_rh66n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rods/PlayerLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rods/PlayerRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Goals/GoalRight:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1864, 560)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Goals/GoalLeft:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(57, 560)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Score:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("InvisibleWalls/WallTop:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 70)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("InvisibleWalls/WallBottom:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 1051)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_quwk7"]
+_data = {
+"RESET": SubResource("Animation_rh66n"),
+"slide_in": SubResource("Animation_kwtjj")
+}
+
 [node name="World" type="Node2D"]
 
 [node name="Ball" parent="." instance=ExtResource("1_554e4")]
@@ -36,6 +217,8 @@ end_cap_mode = 2
 anchor_mode = 0
 
 [node name="Background" parent="." instance=ExtResource("2_xf3i6")]
+offset_right = 1920.0
+offset_bottom = 1120.0
 
 [node name="Score" parent="." instance=ExtResource("3_kakul")]
 custom_minimum_size = Vector2(1920, 1080)
@@ -47,6 +230,12 @@ offset_right = 1936.0
 offset_bottom = 1080.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "slide_in"
+libraries = {
+"": SubResource("AnimationLibrary_quwk7")
+}
 
 [node name="InvisibleWalls" type="Node" parent="."]
 
@@ -92,7 +281,7 @@ scale = Vector2(0.9, 0.125)
 
 [node name="Rods" type="Node" parent="."]
 
-[node name="PlayerLeft" type="Node" parent="Rods"]
+[node name="PlayerLeft" type="Node2D" parent="Rods"]
 script = ExtResource("5_o6llx")
 
 [node name="RodWithOneFigure" parent="Rods/PlayerLeft" instance=ExtResource("6_7qh8g")]
@@ -100,6 +289,7 @@ z_index = 2
 position = Vector2(200, 560)
 
 [node name="Sprite2D" type="Sprite2D" parent="Rods/PlayerLeft/RodWithOneFigure"]
+modulate = Color(1, 1, 1, 0.854902)
 z_index = -1
 scale = Vector2(1, 2)
 texture = ExtResource("7_77424")
@@ -109,6 +299,7 @@ z_index = 2
 position = Vector2(500, 565)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Rods/PlayerLeft/RodWithTwoFigures"]
+modulate = Color(1, 1, 1, 0.854902)
 z_index = -1
 scale = Vector2(1, 2)
 texture = ExtResource("7_77424")
@@ -118,11 +309,12 @@ z_index = 2
 position = Vector2(1136, 547)
 
 [node name="Sprite2D3" type="Sprite2D" parent="Rods/PlayerLeft/RodWithThreeFigures"]
+modulate = Color(1, 1, 1, 0.854902)
 z_index = -1
 scale = Vector2(1, 2)
 texture = ExtResource("7_77424")
 
-[node name="PlayerRight" type="Node" parent="Rods"]
+[node name="PlayerRight" type="Node2D" parent="Rods"]
 script = ExtResource("5_o6llx")
 
 [node name="RodWithOneFigure" parent="Rods/PlayerRight" instance=ExtResource("6_7qh8g")]
@@ -131,6 +323,7 @@ position = Vector2(1736, 560)
 _player_type = 1
 
 [node name="Sprite2D4" type="Sprite2D" parent="Rods/PlayerRight/RodWithOneFigure"]
+modulate = Color(1, 1, 1, 0.854902)
 z_index = -1
 scale = Vector2(1, 2)
 texture = ExtResource("7_77424")
@@ -141,6 +334,7 @@ position = Vector2(1436, 571)
 _player_type = 1
 
 [node name="Sprite2D5" type="Sprite2D" parent="Rods/PlayerRight/RodWithTwoFigures"]
+modulate = Color(1, 1, 1, 0.854902)
 z_index = -1
 scale = Vector2(1, 2)
 texture = ExtResource("7_77424")
@@ -151,6 +345,7 @@ position = Vector2(800, 545)
 _player_type = 1
 
 [node name="Sprite2D6" type="Sprite2D" parent="Rods/PlayerRight/RodWithThreeFigures"]
+modulate = Color(1, 1, 1, 0.854902)
 z_index = -1
 scale = Vector2(1, 2)
 texture = ExtResource("7_77424")
@@ -185,4 +380,5 @@ script = ExtResource("20_63u4r")
 wait_time = 30.0
 autostart = true
 
+[connection signal="game_is_over" from="Score" to="Ball" method="_on_score_game_is_over"]
 [connection signal="timeout" from="PowerUpSpawner/Timer" to="PowerUpSpawner" method="_on_timer_timeout"]

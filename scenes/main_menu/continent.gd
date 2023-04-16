@@ -35,14 +35,18 @@ func _on_input_event(_viewport, event, _shape_idx):
 			var ball = get_parent().get_node("Ballface")
 			get_parent().ball_was_kicked = true
 			var initial_scale = ball.scale
-			tween.tween_property(ball, "position", position-ball.pivot_offset, .6) \
+			tween.tween_property(ball, "position", position-ball.pivot_offset+Vector2(.25, .3), .6) \
 				.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-			tween.parallel().tween_property(ball, "scale", initial_scale * .3, .5) \
-				.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
+			tween.parallel().tween_property(ball, "scale", initial_scale * .6, .5) \
+				.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+			tween.parallel().tween_property(ball, "rotation", TAU * 2, .5).from_current() \
+				.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
 			#tween.tween_property(ball, "scale", initial_scale * .4, .2) \
 			#	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
-			tween.tween_property(ball, "scale", initial_scale * .007, .6) \
-				.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+			tween.tween_property(ball, "scale", initial_scale * .014, .6) \
+				.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_SINE)
+			tween.parallel().tween_property(ball, "rotation", TAU * 4, 1.2).from_current() \
+				.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 				
 			var continent_tween = create_tween()
 			continent_tween.tween_property(self, "scale", Vector2.ONE * 1.2, 0.25) \
@@ -70,7 +74,7 @@ func _on_input_event(_viewport, event, _shape_idx):
 			var rect = TextureRect.new()
 			rect.texture = field_texture
 			rect.modulate = Color(1, 1, 1, 0)
-			rect.scale = Vector2.ONE / 64
+			rect.scale = Vector2.ONE / 32
 			get_parent().add_child(rect)
 			rect.position = position - rect.size * rect.scale / 2
 			continent_tween.parallel().tween_property(rect, "modulate", Color(1, 1, 1), 0.25) \

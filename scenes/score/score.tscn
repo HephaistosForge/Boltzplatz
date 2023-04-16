@@ -16,11 +16,10 @@ theme = ExtResource("1_jjd6m")
 script = ExtResource("1_pn7yh")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 556.0
-offset_right = 1346.0
-offset_bottom = 90.0
-pivot_offset = Vector2(394, 31)
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 75.0
+pivot_offset = Vector2(962, 40)
 theme_override_constants/separation = 100
 alignment = 1
 

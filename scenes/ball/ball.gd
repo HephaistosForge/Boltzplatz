@@ -4,13 +4,6 @@ extends RigidBody2D
 @export var _velocity = 1000
 @export var timeout_after_reset = 2 # in seconds
 
-@onready var directions: Array[Vector2] = [right_down, right_up, left_down, left_up]
-
-var right_down = Vector2(_velocity, _velocity)
-var right_up = Vector2(_velocity, -_velocity)
-var left_down = Vector2(-_velocity, _velocity)
-var left_up = Vector2(-_velocity, -_velocity)
-
 var direction: Vector2
 var direction_as_angle: float
 
@@ -39,12 +32,10 @@ func _ready():
 
 
 func choose_random_movement_direction() -> void:
-	var random_index: int = randi_range(0, directions.size() - 1)
 	var angle = randf_range(-PI / 4, PI / 4)
-	var possibly_flipped = angle + (PI if randf() < 0.5 else 0)
+	var possibly_flipped = angle + (PI if randf() < 0.5 else 0.0)
 	direction = Vector2(cos(possibly_flipped), sin(possibly_flipped)) * _velocity
 	direction_as_angle = possibly_flipped
-	#direction = directions[random_index]
 	
 #func _physics_process(delta):
 	
@@ -53,6 +44,10 @@ func choose_random_movement_direction() -> void:
 
 
 func _integrate_forces(state):
+	if game_over:
+		state.linear_velocity = Vector2.ZERO
+		return
+	
 	if has_position_update:
 		has_position_update = false
 		state.transform.origin = _new_position
@@ -113,3 +108,8 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	if not game_over:
 		set_to_position(center)
 
+
+
+func _on_score_game_is_over():
+	game_over = true
+	get_tree().paused = true

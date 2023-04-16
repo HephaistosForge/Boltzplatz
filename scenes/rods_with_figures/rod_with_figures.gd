@@ -67,11 +67,15 @@ func _physics_process(_delta):
 		# Kick by moving collision shape
 		for figure in figures:
 			var tween = create_tween()
-			tween.tween_property(figure.get_node("CollisionShape2D"), "position", kicking_vector, KICKING_SPEED)
-			tween.parallel().tween_property(figure.get_node(FOOT_IMAGE), "position", kicking_vector, KICKING_SPEED)
+			tween.tween_property(figure.get_node("CollisionShape2D"), "position", kicking_vector, KICKING_SPEED) \
+				.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+			tween.parallel().tween_property(figure.get_node(FOOT_IMAGE), "position", kicking_vector, KICKING_SPEED) \
+				.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
 			tween.tween_callback(self.disable_kickforce)
-			tween.tween_property(figure.get_node("CollisionShape2D"), "position", Vector2.ZERO, KICKING_SPEED)
-			tween.parallel().tween_property(figure.get_node(FOOT_IMAGE), "position", Vector2.ZERO, KICKING_SPEED)
+			tween.tween_property(figure.get_node("CollisionShape2D"), "position", Vector2.ZERO, KICKING_SPEED) \
+				.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUART)
+			tween.parallel().tween_property(figure.get_node(FOOT_IMAGE), "position", Vector2.ZERO, KICKING_SPEED) \
+				.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUART)
 		
 		can_kick = true
 	

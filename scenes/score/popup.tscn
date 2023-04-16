@@ -1,23 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcmoetib6jnti"]
+[gd_scene load_steps=6 format=3 uid="uid://bcmoetib6jnti"]
 
 [ext_resource type="Theme" uid="uid://d0nyo18rwdv00" path="res://scenes/themes/popup.tres" id="1_u7sv1"]
 [ext_resource type="Script" path="res://scenes/score/popup.gd" id="2_4ht35"]
-[ext_resource type="FontFile" uid="uid://dqqwo6spgxssr" path="res://scenes/themes/Sportfield Varsity-Grunge.otf" id="2_krk40"]
+[ext_resource type="Theme" uid="uid://c1kdyrtvrsdx2" path="res://scenes/themes/theme.tres" id="3_fwnjl"]
+[ext_resource type="FontFile" uid="uid://bbav1ppiqin73" path="res://scenes/themes/Silkscreen/Silkscreen-Bold.ttf" id="4_0pgv5"]
 
 [sub_resource type="Theme" id="Theme_r1es8"]
 
 [node name="popup" type="PanelContainer"]
+modulate = Color(1, 0, 0.0666667, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -63.5
-offset_top = -26.0
-offset_right = 63.5
-offset_bottom = 26.0
+offset_left = -167.0
+offset_top = -105.5
+offset_right = 167.0
+offset_bottom = 105.5
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(171, 110.5)
 theme = ExtResource("1_u7sv1")
 script = ExtResource("2_4ht35")
 
@@ -34,10 +37,11 @@ layout_mode = 2
 
 [node name="game_over" type="Label" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0.227451, 0.294118, 1)
-theme_override_fonts/font = ExtResource("2_krk40")
+theme = ExtResource("3_fwnjl")
+theme_override_colors/font_color = Color(0.384314, 0.384314, 0.384314, 1)
+theme_override_fonts/font = ExtResource("4_0pgv5")
 theme_override_font_sizes/font_size = 48
-text = "Game is over"
+text = "_ siegt!"
 horizontal_alignment = 1
 
 [node name="winner_is" type="Label" parent="MarginContainer/PanelContainer"]
@@ -53,6 +57,7 @@ size_flags_horizontal = 4
 [node name="menu" type="Button" parent="MarginContainer/PanelContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
-text = "Back to Menu"
+theme = ExtResource("3_fwnjl")
+text = "Züruck zur Karte"
 
 [connection signal="pressed" from="MarginContainer/PanelContainer/HBoxContainer/menu" to="." method="_on_menu_pressed"]

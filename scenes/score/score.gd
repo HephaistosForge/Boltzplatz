@@ -12,6 +12,8 @@ var score_player_left = 0
 var score_player_right = 0
 var text
 
+signal game_is_over
+
 func _ready():
 	_update_ui()
 
@@ -50,28 +52,42 @@ func _update_ui():
 		var time = 1
 		var tween = create_tween()
 		
+		var win_multiplier = int(max(score_player_left, score_player_right) < POINTS_TO_WIN)*2
 		tween.tween_property(container, "rotation", .05 * changed, time) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
-		tween.parallel().tween_property(label, "scale", Vector2.ONE * 2, time) \
+		tween.parallel().tween_property(label, "scale", Vector2.ONE * 2 * (1+win_multiplier), time) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 		var color = Color.BLUE if changed == 1 else Color.RED
 		tween.parallel().tween_property(label, "modulate", color, time) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+		
+		if max(score_player_left, score_player_right) < POINTS_TO_WIN:
 			
-		tween.tween_property(container, "rotation", 0, time) \
-			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
-		tween.parallel().tween_property(label, "scale", Vector2.ONE, time) \
-			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
-		tween.parallel().tween_property(label, "modulate", Color.WHITE, time) \
-			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+			tween.tween_property(container, "rotation", 0, time) \
+				.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+			tween.parallel().tween_property(label, "scale", Vector2.ONE, time) \
+				.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+			tween.parallel().tween_property(label, "modulate", Color.WHITE, time) \
+				.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+			
 
 func check_score():
 	if score_player_left >= POINTS_TO_WIN or score_player_right >= POINTS_TO_WIN:
 		ball.game_over = true
 		var win_dialog = WIN_DIALOG_PREFAB.instantiate()
+		var color
 		if score_player_left >= POINTS_TO_WIN:
-			text = "Spieler Blau hat gewonnen!"
+			text = "Blau siegt!"
+			color = Color.BLUE
 		if score_player_right >= POINTS_TO_WIN:
-			text = "Spieler Rot hat gewonnen!"
+			text = "Rot siegt!"
+			color = Color.RED
 		self.add_child(win_dialog)
-		win_dialog.set_win_text(text)
+		win_dialog.set_win_text(text, color)
+		
+		win_dialog.scale = Vector2.ZERO
+		var tween = create_tween()
+		tween.tween_property(win_dialog, "scale", Vector2.ONE * 1.2, 1) \
+			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+		tween.parallel().tween_property(win_dialog, "rotation", .1, 1) \
+			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)

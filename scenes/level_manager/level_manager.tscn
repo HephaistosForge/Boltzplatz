@@ -1,8 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://1mgb0nw1fxyl"]
 
 [ext_resource type="Script" path="res://scenes/level_manager/level_manager.gd" id="1_tbx17"]
-[ext_resource type="Texture2D" uid="uid://04nt4qyry8qh" path="res://icon.svg" id="2_xskcj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yx885"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
 
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_tbx17")
-bg_default = ExtResource("2_xskcj")
+bg_default = SubResource("CompressedTexture2D_yx885")
