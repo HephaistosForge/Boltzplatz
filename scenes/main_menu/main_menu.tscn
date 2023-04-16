@@ -74,6 +74,7 @@ offset_bottom = 1080.0
 texture = ExtResource("1_2alpc")
 
 [node name="Ballface" type="TextureRect" parent="."]
+z_index = 8
 layout_mode = 0
 offset_left = 684.0
 offset_top = 694.0

@@ -21,6 +21,7 @@ var is_waiting: bool = false
 
 var _new_position: Vector2
 var center: Vector2
+var acceleration = Vector2.ZERO
 
 var last_player_touched = Rod.PLAYER_TYPE.PLAYER_LEFT
 
@@ -44,6 +45,11 @@ func choose_random_movement_direction() -> void:
 	direction = Vector2(cos(possibly_flipped), sin(possibly_flipped)) * _velocity
 	direction_as_angle = possibly_flipped
 	#direction = directions[random_index]
+	
+#func _physics_process(delta):
+	
+#	self.apply_force(acceleration / 10)
+	# self.velocity += acceleration
 
 
 func _integrate_forces(state):
@@ -91,7 +97,9 @@ func _start_moving_after_delay() -> void:
 		
 		await get_tree().create_timer(timeout_after_reset).timeout
 		
+		self.acceleration = direction.normalized()
 		self.apply_impulse(direction)
+		# self.apply_force(direction)
 		apply_torque_impulse(0.01)
 		is_waiting = false
 

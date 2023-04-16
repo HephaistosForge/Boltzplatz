@@ -47,15 +47,22 @@ func _update_ui():
 	var changed = int(left_changed) - int(right_changed)
 	if changed:
 		var label = {1: label_player_left, -1: label_player_right}[changed]
-		var time = .7
+		var time = 1
 		var tween = create_tween()
+		
 		tween.tween_property(container, "rotation", .05 * changed, time) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
-		tween.parallel().tween_property(label, "scale", Vector2.ONE * 1.7, time) \
+		tween.parallel().tween_property(label, "scale", Vector2.ONE * 2, time) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+		var color = Color.BLUE if changed == 1 else Color.RED
+		tween.parallel().tween_property(label, "modulate", color, time) \
+			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+			
 		tween.tween_property(container, "rotation", 0, time) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 		tween.parallel().tween_property(label, "scale", Vector2.ONE, time) \
+			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+		tween.parallel().tween_property(label, "modulate", Color.WHITE, time) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 
 func check_score():

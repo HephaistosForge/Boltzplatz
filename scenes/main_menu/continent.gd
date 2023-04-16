@@ -25,7 +25,21 @@ func _on_mouse_exited():
 
 
 func _on_input_event(_viewport, event, _shape_idx):
+	
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_MASK_LEFT and event.pressed:
+			var tween = create_tween()
+			var ball = get_parent().get_node("Ballface")
+			ball.was_kicked = true
+			var initial_scale = ball.scale
+			tween.tween_property(ball, "position", position-ball.pivot_offset, .6) \
+				.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+			tween.parallel().tween_property(ball, "scale", initial_scale * .3, .5) \
+				.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
+			tween.tween_property(ball, "scale", initial_scale * .4, .2) \
+				.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+			tween.tween_property(ball, "scale", initial_scale * .2, .1) \
+				.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+			await tween.finished
 			get_tree().change_scene_to_packed(default_continent)
 			Global.selected_level_settings = level_settings
