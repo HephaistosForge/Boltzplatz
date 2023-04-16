@@ -95,6 +95,7 @@ var commentary_pregame = {
 	"south_america": preload("res://assets/commentary/opening/südamerika.mp3"),
 	"asia": preload("res://assets/commentary/opening/asien.mp3"),
 	"europe": preload("res://assets/commentary/opening/europa.mp3"),
+	"africa": preload("res://assets/commentary/opening/afrika.mp3"),
 }
 
 func play_commentary_random():
