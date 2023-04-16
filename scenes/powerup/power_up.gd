@@ -7,6 +7,15 @@ const powerup_variants = [
 	preload("res://assets/powerups/wind_1.png")
 ]
 
+const texts = [
+	"Bonuspunkt!",
+	"Gegner verliert Punkt!",
+	"Gegnersabotage!",
+	"Kickstärke!",
+]
+
+var description
+
 const REDUCE_TIME = 10.0
 const KICK_POWER_TIME = 10.0
 
@@ -17,6 +26,7 @@ var other_player
 
 func _ready() -> void:
 	self.texture = powerup_variants[variant]
+	self.description = texts[variant]
 
 
 func execute(_player):
