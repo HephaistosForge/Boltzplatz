@@ -41,7 +41,7 @@ func _ready():
 func choose_random_movement_direction() -> void:
 	var random_index: int = randi_range(0, directions.size() - 1)
 	var angle = randf_range(-PI / 4, PI / 4)
-	var possibly_flipped = angle * (-1 if randf() < 0.5 else 1)
+	var possibly_flipped = angle + (PI if randf() < 0.5 else 0)
 	direction = Vector2(cos(possibly_flipped), sin(possibly_flipped)) * _velocity
 	direction_as_angle = possibly_flipped
 	#direction = directions[random_index]
