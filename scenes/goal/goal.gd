@@ -18,6 +18,7 @@ func _on_body_entered(_body):
 			
 	if not ball.game_over:
 		ball.set_to_position(get_viewport().get_visible_rect().get_center())
+		Global.play_commentary_goal()
 	
 	if goal_position == GOAL_POSITION.LEFT:
 		score.add_one_to_player_right()

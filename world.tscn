@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d1ux427mm4mwa"]
+[gd_scene load_steps=28 format=3 uid="uid://d1ux427mm4mwa"]
 
 [ext_resource type="PackedScene" uid="uid://cgros0gs401b0" path="res://scenes/ball/ball.tscn" id="1_554e4"]
 [ext_resource type="PackedScene" uid="uid://dx43d0qsdjl48" path="res://scenes/background/background.tscn" id="2_xf3i6"]
@@ -20,6 +20,95 @@
 [ext_resource type="Texture2D" uid="uid://b0bmt7fb5tf1e" path="res://assets/backgrounds/Spielfeld_ice.png" id="18_v38ye"]
 [ext_resource type="Texture2D" uid="uid://8hhmj0w3twnx" path="res://assets/backgrounds/Spielfeld_sand.png" id="19_6fitr"]
 [ext_resource type="Script" path="res://scenes/powerup/power_up_spawner.gd" id="20_63u4r"]
+[ext_resource type="Script" path="res://scenes/goal/random_commentary.gd" id="21_8drq7"]
+[ext_resource type="Script" path="res://scenes/goal/close_goal.gd" id="21_63dbq"]
+
+[sub_resource type="Animation" id="Animation_rh66n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rods/PlayerLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rods/PlayerRight:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Goals/GoalRight:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1864, 560)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Goals/GoalLeft:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(57, 560)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Score:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("InvisibleWalls/WallTop:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 70)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("InvisibleWalls/WallBottom:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 1051)]
+}
 
 [sub_resource type="Animation" id="Animation_kwtjj"]
 resource_name = "slide_in"
@@ -107,93 +196,6 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-876, 1051), Vector2(960, 1051)]
-}
-
-[sub_resource type="Animation" id="Animation_rh66n"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Rods/PlayerLeft:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Rods/PlayerRight:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Goals/GoalRight:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1864, 560)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Goals/GoalLeft:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(57, 560)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Score:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(16, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("InvisibleWalls/WallTop:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(960, 70)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("InvisibleWalls/WallBottom:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(960, 1051)]
 }
 
 [sub_resource type="Animation" id="Animation_4bdey"]
@@ -290,6 +292,9 @@ _data = {
 "slide_in": SubResource("Animation_kwtjj"),
 "slide_out": SubResource("Animation_4bdey")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pl7r8"]
+size = Vector2(118, 320)
 
 [node name="World" type="Node2D"]
 
@@ -470,5 +475,25 @@ script = ExtResource("20_63u4r")
 wait_time = 30.0
 autostart = true
 
+[node name="RandomCommentary" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+script = ExtResource("21_8drq7")
+
+[node name="CloseGoal" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("21_63dbq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CloseGoal"]
+position = Vector2(54, 562)
+shape = SubResource("RectangleShape2D_pl7r8")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CloseGoal"]
+position = Vector2(1870, 562)
+shape = SubResource("RectangleShape2D_pl7r8")
+
 [connection signal="game_is_over" from="Score" to="Ball" method="_on_score_game_is_over"]
 [connection signal="timeout" from="PowerUpSpawner/Timer" to="PowerUpSpawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="RandomCommentary" to="RandomCommentary" method="_on_timeout"]
+[connection signal="body_entered" from="CloseGoal" to="CloseGoal" method="_on_body_entered"]

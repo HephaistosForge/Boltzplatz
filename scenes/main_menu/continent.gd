@@ -89,6 +89,8 @@ func _on_input_event(_viewport, event, _shape_idx):
 			continent_tween.parallel().tween_property(camera, "position", position - camera.offset, 1) \
 				.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 				
+			Global.current_continent = name
+				
 			await continent_tween.finished
 			# await continent_tween.finished
 			get_tree().change_scene_to_packed(default_continent)

@@ -20,22 +20,82 @@ enum LEVEL_SETTINGS {
 	LEVEL_SETTINGS.SAND: preload("res://assets/backgrounds/Spielfeld_sand.png"),
 }
 
+@onready var commentary_player = _create_new_audio_stream()
+
+var current_continent = "europe"
 
 var commentary_random = [
-	#preload()
+	preload("res://assets/commentary/random/random01.mp3"),
+	preload("res://assets/commentary/random/random02.mp3"),
+	preload("res://assets/commentary/random/random03.mp3"),
+	preload("res://assets/commentary/random/random04.mp3"),
+	preload("res://assets/commentary/random/random05.mp3"),
+	preload("res://assets/commentary/random/random06.mp3"),
+	preload("res://assets/commentary/random/random07.mp3"),
+	preload("res://assets/commentary/random/random08.mp3"),
+	preload("res://assets/commentary/random/random09.mp3"),
+	preload("res://assets/commentary/random/random10.mp3"),
+	preload("res://assets/commentary/random/random11.mp3"),
+	preload("res://assets/commentary/random/random12.mp3"),
+	preload("res://assets/commentary/random/random13.mp3"),
+	preload("res://assets/commentary/random/random14.mp3"),
+	preload("res://assets/commentary/random/random15.mp3"),
+	preload("res://assets/commentary/random/random16.mp3"),
+	preload("res://assets/commentary/random/random17.mp3"),
+	preload("res://assets/commentary/random/random18.mp3"),
+	preload("res://assets/commentary/random/random19.mp3"),
+	preload("res://assets/commentary/random/random20.mp3"),
+	preload("res://assets/commentary/random/random21.mp3"),
+	preload("res://assets/commentary/random/random22.mp3"),
+	preload("res://assets/commentary/random/random23.mp3"),
+	preload("res://assets/commentary/random/random24.mp3"),
 ]
 
 var commentary_goal = [
-	#preload()
+	preload("res://assets/commentary/tor/tor02.mp3"),
+	preload("res://assets/commentary/tor/tor03.mp3"),
+	preload("res://assets/commentary/tor/tor04.mp3"),
+	preload("res://assets/commentary/tor/tor05.mp3"),
+	preload("res://assets/commentary/tor/tor06.mp3"),
+	preload("res://assets/commentary/tor/tor07.mp3"),
+	preload("res://assets/commentary/tor/tor08.mp3"),
+	preload("res://assets/commentary/tor/tor09.mp3"),
+	preload("res://assets/commentary/tor/tor10.mp3"),
+	preload("res://assets/commentary/tor/tor11.mp3"),
+	preload("res://assets/commentary/tor/tor12.mp3"),
+	preload("res://assets/commentary/tor/tor13.mp3"),
+	preload("res://assets/commentary/tor/tor14.mp3"),
+	preload("res://assets/commentary/tor/tor15.mp3"),
+	preload("res://assets/commentary/tor/tor16.mp3"),
 ]
 
 var commentary_close = [
-	#preload()
+	preload("res://assets/commentary/close/daneben01.mp3"),
+	preload("res://assets/commentary/close/daneben02.mp3"),
+	preload("res://assets/commentary/close/daneben03.mp3"),
+	preload("res://assets/commentary/close/daneben04.mp3"),
+	preload("res://assets/commentary/close/daneben05.mp3"),
+	preload("res://assets/commentary/close/daneben06.mp3"),
+	preload("res://assets/commentary/close/daneben07.mp3"),
+	preload("res://assets/commentary/close/daneben08.mp3"),
+	preload("res://assets/commentary/close/daneben09.mp3"),
+	preload("res://assets/commentary/close/daneben10.mp3"),
+	preload("res://assets/commentary/close/daneben11.mp3"),
+	preload("res://assets/commentary/close/daneben12.mp3"),
+	preload("res://assets/commentary/close/daneben13.mp3"),
+	preload("res://assets/commentary/close/daneben14.mp3"),
+	preload("res://assets/commentary/close/daneben15.mp3"),
+	preload("res://assets/commentary/close/daneben16.mp3"),
 ]
 
-var commentary_pregame = [
-	#preload()
-]
+var commentary_pregame = {
+	"north_america": preload("res://assets/commentary/opening/usa.mp3"),
+	"antarctica": preload("res://assets/commentary/opening/antarktis.mp3"),
+	"australia": preload("res://assets/commentary/opening/australien.mp3"),
+	"south_america": preload("res://assets/commentary/opening/südamerika.mp3"),
+	"asia": preload("res://assets/commentary/opening/asien.mp3"),
+	"europe": preload("res://assets/commentary/opening/europa.mp3"),
+}
 
 func play_commentary_random():
 	return play_random_from_list(commentary_random)
@@ -44,16 +104,19 @@ func play_commentary_goal():
 	return play_random_from_list(commentary_goal)
 	
 func play_commentary_close():
-	return play_random_from_list(commentary_goal)
+	return play_random_from_list(commentary_close)
 	
 func play_commentary_pregame():
-	return play_random_from_list(commentary_goal)
+	if current_continent in commentary_pregame:
+		return create_audio_stream(commentary_pregame[current_continent], commentary_player)
+	return null
+	# return play_random_from_list(commentary_pregame)
 	
 func play_random_from_list(list):
 	if len(list) == 0:
 		return null
 	var audio = list[randi_range(0, len(list)-1)]
-	return create_audio_stream(audio)
+	return create_audio_stream(audio, commentary_player)
 
 
 var selected_level_settings: LEVEL_SETTINGS

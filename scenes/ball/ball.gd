@@ -11,6 +11,7 @@ extends RigidBody2D
 var direction: Vector2
 var direction_as_angle: float
 
+var first_ball = true
 
 var rotation_offset = 0.02
 
@@ -106,6 +107,11 @@ func _adjust_position() -> void:
 
 
 func _start_moving_after_delay() -> void:
+	if first_ball:
+		var ret_val = Global.play_commentary_pregame()
+		first_ball = false
+		if ret_val != null:
+			await Global.commentary_player.finished
 	if not is_waiting:
 		is_waiting = true
 		choose_random_movement_direction()
