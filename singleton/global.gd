@@ -10,6 +10,16 @@ enum LEVEL_SETTINGS {
 	SAND
 }
 
+@export var level_to_texture = {
+	LEVEL_SETTINGS.DEFAULT: preload("res://assets/backgrounds/Spielfeld_grass_stripes.png"),
+	LEVEL_SETTINGS.DEFAULT2: preload("res://assets/backgrounds/Spielfeld_grass_stripes2.png"),
+	LEVEL_SETTINGS.DEFAULT_NO_GOAL: preload("res://assets/backgrounds/Spielfeld_ohne_Tor.png"),
+	LEVEL_SETTINGS.STREET: preload("res://assets/backgrounds/Spielfeld_street.png"),
+	LEVEL_SETTINGS.MUD: preload("res://assets/backgrounds/Spielfeld_mud.png"),
+	LEVEL_SETTINGS.ICE: preload("res://assets/backgrounds/Spielfeld_ice.png"),
+	LEVEL_SETTINGS.SAND: preload("res://assets/backgrounds/Spielfeld_sand.png"),
+}
+
 var selected_level_settings: LEVEL_SETTINGS
 
 

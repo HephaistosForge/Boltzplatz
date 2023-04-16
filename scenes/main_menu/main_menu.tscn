@@ -81,7 +81,7 @@ offset_top = 694.0
 offset_right = 1004.0
 offset_bottom = 1014.0
 scale = Vector2(0.6, 0.6)
-pivot_offset = Vector2(167.963, 147.963)
+pivot_offset = Vector2(160, 160)
 texture = ExtResource("2_btrv0")
 script = ExtResource("5_lgepv")
 
@@ -208,6 +208,9 @@ shape = SubResource("CapsuleShape2D_yo1jj")
 
 [node name="AudioClick" type="AudioStreamPlayer2D" parent="." groups=["audio_click"]]
 stream = ExtResource("17_1u6fa")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(960, 540)
 
 [connection signal="mouse_entered" from="Ballface" to="Ballface" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Ballface" to="Ballface" method="_on_mouse_exited"]
