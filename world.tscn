@@ -494,6 +494,18 @@ position = Vector2(1870, 562)
 shape = SubResource("RectangleShape2D_pl7r8")
 
 [connection signal="game_is_over" from="Score" to="Ball" method="_on_score_game_is_over"]
+[connection signal="animation_finished" from="AnimationPlayer" to="Rods/PlayerLeft/RodWithOneFigure" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="Rods/PlayerLeft/RodWithTwoFigures" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="Rods/PlayerLeft/RodWithThreeFigures" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="Rods/PlayerRight/RodWithOneFigure" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="Rods/PlayerRight/RodWithTwoFigures" method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="Rods/PlayerRight/RodWithThreeFigures" method="_on_animation_player_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="Rods/PlayerLeft/RodWithOneFigure" method="_on_animation_player_animation_started"]
+[connection signal="animation_started" from="AnimationPlayer" to="Rods/PlayerLeft/RodWithTwoFigures" method="_on_animation_player_animation_started"]
+[connection signal="animation_started" from="AnimationPlayer" to="Rods/PlayerLeft/RodWithThreeFigures" method="_on_animation_player_animation_started"]
+[connection signal="animation_started" from="AnimationPlayer" to="Rods/PlayerRight/RodWithOneFigure" method="_on_animation_player_animation_started"]
+[connection signal="animation_started" from="AnimationPlayer" to="Rods/PlayerRight/RodWithTwoFigures" method="_on_animation_player_animation_started"]
+[connection signal="animation_started" from="AnimationPlayer" to="Rods/PlayerRight/RodWithThreeFigures" method="_on_animation_player_animation_started"]
 [connection signal="timeout" from="PowerUpSpawner/Timer" to="PowerUpSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="RandomCommentary" to="RandomCommentary" method="_on_timeout"]
 [connection signal="body_entered" from="CloseGoal" to="CloseGoal" method="_on_body_entered"]
