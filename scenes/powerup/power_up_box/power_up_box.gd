@@ -21,7 +21,7 @@ func _physics_process(_delta: float) -> void:
 			destroy_box()
 
 
-func destroy_box():
+func destroy_box() -> void:
 	var tween = create_tween()
 	tween.tween_property($Sprite2D, "scale", Vector2(1.2, .8), 0.1) \
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
@@ -36,7 +36,7 @@ func destroy_box():
 		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
 
 
-func execute_power_up():
+func execute_power_up() -> void:
 	power_up = POWER_UP_PREFAB.instantiate()
 	power_up.variant = randi_range(0,3)
 	self.add_child(power_up)
@@ -62,32 +62,32 @@ func execute_power_up():
 	power_up.execute(touched_by)
 	
 	
-func _highlight_powerup(tween: Tween, color: Color):
+func _highlight_powerup(tween: Tween, color: Color) -> void:
 	tween.tween_property(power_up, "scale", Vector2(1.2, 1.2), 0.3) \
 	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	tween.parallel().tween_property(power_up, "modulate", color, 0.2) \
 		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
 		
 		
-func _dehighlight_powerup(tween: Tween):
+func _dehighlight_powerup(tween: Tween) -> void:
 	tween.tween_property(power_up, "scale", Vector2(1.8, 1.8), 0.3) \
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 		
 
 
-func _move_powerup(tween: Tween, pos: Vector2, color: Color):
+func _move_powerup(tween: Tween, pos: Vector2, color: Color) -> void:
 	tween.tween_property(power_up, "global_position", pos, 0.3) \
 		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
 	tween.parallel().tween_property(power_up, "modulate", Color(color, 0.5), 0.3) \
 		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
 
 
-func _fade_powerup(tween: Tween):
+func _fade_powerup(tween: Tween) -> void:
 	tween.tween_property(power_up, "scale", Vector2.ZERO, 0.3) \
 		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
 
 
-func _show_description(tween: Tween, color: Color):
+func _show_description(tween: Tween, color: Color) -> void:
 	var description = DESCRIPTION_PREFAB.instantiate()
 	description.get_node("Description").text = power_up.description
 	description.modulate = Color(1, 1, 1, 0)

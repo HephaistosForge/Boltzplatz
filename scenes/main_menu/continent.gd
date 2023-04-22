@@ -33,7 +33,7 @@ func _on_input_event(_viewport, event, _shape_idx):
 			Signals.emit_signal("level_entry_animation_finished")
 
 
-func _play_hover_tween():
+func _play_hover_tween() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2.ONE * 1.05, 0.25) \
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
@@ -43,7 +43,7 @@ func _play_hover_tween():
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 
-func _play_not_hover_tween():
+func _play_not_hover_tween() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2.ONE, 0.25) \
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
@@ -53,7 +53,7 @@ func _play_not_hover_tween():
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 
-func _play_ballface_pitch_tween():
+func _play_ballface_pitch_tween() -> void:
 	var tween = create_tween()
 	var ball = get_parent().get_node("Ballface")
 	get_parent().ball_was_kicked = true
@@ -70,7 +70,7 @@ func _play_ballface_pitch_tween():
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
 
 
-func _play_switch_to_field_tween():
+func _play_switch_to_field_tween() -> Tween:
 	var continent_tween = create_tween()
 	continent_tween.tween_property(self, "scale", Vector2.ONE * 1.2, 0.25) \
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
