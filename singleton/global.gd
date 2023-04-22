@@ -24,6 +24,8 @@ enum LEVEL_SETTINGS {
 
 var current_continent = "europe"
 
+var game_finished = false
+
 var commentary_random = [
 	preload("res://assets/commentary/random/random01.mp3"),
 	preload("res://assets/commentary/random/random02.mp3"),
@@ -111,7 +113,6 @@ func play_commentary_pregame():
 	if current_continent in commentary_pregame:
 		return create_audio_stream(commentary_pregame[current_continent], commentary_player)
 	return null
-	# return play_random_from_list(commentary_pregame)
 	
 func play_random_from_list(list):
 	if len(list) == 0:

@@ -15,6 +15,7 @@ var text
 signal game_is_over
 
 func _ready():
+	Global.game_finished = false
 	_update_ui()
 
 func add_one_to_player_left():
@@ -93,3 +94,5 @@ func check_score():
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 		tween.parallel().tween_property(win_dialog, "rotation", .1, 1) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+			
+		Global.game_finished = true
