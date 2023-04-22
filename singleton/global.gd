@@ -150,5 +150,6 @@ func create_audio_stream(stream: AudioStream, sfx: AudioStreamPlayer2D=_create_n
 func _create_new_audio_stream() -> AudioStreamPlayer2D:
 	var sfx = AudioStreamPlayer2D.new()
 	add_child(sfx)
+	sfx.add_to_group("sfx")
 	return sfx
 	

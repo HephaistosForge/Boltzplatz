@@ -11,4 +11,11 @@ func _process(_delta):
 
 	if Input.is_action_just_pressed("exit"):
 		#get_tree().quit()
+		stop_audio()
+		
 		get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
+
+func stop_audio():
+	var sfx_nodes = get_tree().get_nodes_in_group("sfx")
+	for sfx in sfx_nodes:
+		sfx.stop()
