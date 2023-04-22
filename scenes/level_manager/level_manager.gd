@@ -34,7 +34,7 @@ func set_level_settings(level_setting: int) -> void:
 		Global.LEVEL_SETTINGS.SAND:
 			_update_level_settings(600, bg_sand)
 		_:
-			pass
+			printerr("set_level_settings: Unkown Level Setting: " + str(level_setting))
 
 
 func _update_level_settings(new_velocity, background_texture: CompressedTexture2D) -> void:
