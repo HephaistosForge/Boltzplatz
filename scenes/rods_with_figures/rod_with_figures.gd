@@ -112,9 +112,9 @@ func set_player(player: int) -> void:
 		printerr("Invalid player type: %s" % str(_player_type))
 
 
-func _on_animation_player_animation_finished(anim_name):
+func _on_animation_player_animation_finished(_anim_name):
 	self.movement_enabled = true
 
 
-func _on_animation_player_animation_started(anim_name):
+func _on_animation_player_animation_started(_anim_name):
 	self.movement_enabled = false
