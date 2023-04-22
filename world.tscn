@@ -1,16 +1,15 @@
-[gd_scene load_steps=28 format=3 uid="uid://d1ux427mm4mwa"]
+[gd_scene load_steps=27 format=3 uid="uid://c80krphr1j61u"]
 
 [ext_resource type="PackedScene" uid="uid://cgros0gs401b0" path="res://scenes/ball/ball.tscn" id="1_554e4"]
 [ext_resource type="PackedScene" uid="uid://dx43d0qsdjl48" path="res://scenes/background/background.tscn" id="2_xf3i6"]
 [ext_resource type="PackedScene" uid="uid://cc4ft5f0g0mm2" path="res://scenes/score/score.tscn" id="3_kakul"]
 [ext_resource type="PackedScene" uid="uid://bqttc2t515xwf" path="res://scenes/wall/wall.tscn" id="4_f4lme"]
-[ext_resource type="Script" path="res://scenes/player/Player.gd" id="5_o6llx"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="5_cl3w7"]
 [ext_resource type="PackedScene" uid="uid://cq3sbjobha5ku" path="res://scenes/rods_with_figures/rod_with_one_figure.tscn" id="6_7qh8g"]
 [ext_resource type="Texture2D" uid="uid://miu8xscsf25i" path="res://assets/Stange.png" id="7_77424"]
 [ext_resource type="PackedScene" uid="uid://q7wae6af5rl0" path="res://scenes/rods_with_figures/rod_with_two_figures.tscn" id="8_6uis2"]
 [ext_resource type="PackedScene" uid="uid://k6tb2icundgi" path="res://scenes/rods_with_figures/rod_with_three_figures.tscn" id="9_bajha"]
 [ext_resource type="PackedScene" uid="uid://tlptqlhf13g2" path="res://scenes/goal/goal.tscn" id="10_6s2vl"]
-[ext_resource type="Script" path="res://hotkey.gd" id="11_pplf5"]
 [ext_resource type="PackedScene" uid="uid://1mgb0nw1fxyl" path="res://scenes/level_manager/level_manager.tscn" id="12_coy66"]
 [ext_resource type="Texture2D" uid="uid://dra2c14jlj7h6" path="res://assets/backgrounds/Spielfeld_grass_stripes.png" id="13_q730d"]
 [ext_resource type="Texture2D" uid="uid://dy1ofw5fxrutr" path="res://assets/backgrounds/Spielfeld_grass_stripes2.png" id="14_vgfy8"]
@@ -377,7 +376,7 @@ scale = Vector2(0.9, 0.125)
 [node name="Rods" type="Node" parent="."]
 
 [node name="PlayerLeft" type="Node2D" parent="Rods"]
-script = ExtResource("5_o6llx")
+script = ExtResource("5_cl3w7")
 
 [node name="RodWithOneFigure" parent="Rods/PlayerLeft" instance=ExtResource("6_7qh8g")]
 z_index = 2
@@ -410,7 +409,7 @@ scale = Vector2(1, 2)
 texture = ExtResource("7_77424")
 
 [node name="PlayerRight" type="Node2D" parent="Rods"]
-script = ExtResource("5_o6llx")
+script = ExtResource("5_cl3w7")
 
 [node name="RodWithOneFigure" parent="Rods/PlayerRight" instance=ExtResource("6_7qh8g")]
 z_index = 2
@@ -454,9 +453,6 @@ position = Vector2(57, 560)
 position = Vector2(1864, 560)
 rotation = 3.14159
 goal_position = 1
-
-[node name="Hotkey" type="Node" parent="."]
-script = ExtResource("11_pplf5")
 
 [node name="LevelManager" parent="." instance=ExtResource("12_coy66")]
 bg_default = ExtResource("13_q730d")

@@ -1,5 +1,4 @@
 extends Area2D
-@onready var default_continent = preload("res://world.tscn")
 
 @export var level_settings = Global.LEVEL_SETTINGS.STREET
 
@@ -30,6 +29,8 @@ func _on_input_event(_viewport, event, _shape_idx):
 	
 	if event is InputEventMouseButton and not get_parent().ball_was_kicked:
 		if event.button_index == MOUSE_BUTTON_MASK_LEFT and event.pressed:
+			
+			Signals.emit_signal("level_entry_animation_started")
 			
 			get_parent().get_node("AudioWind").play()
 			
@@ -93,5 +94,7 @@ func _on_input_event(_viewport, event, _shape_idx):
 				
 			await continent_tween.finished
 			# await continent_tween.finished
-			get_tree().change_scene_to_packed(default_continent)
+			get_tree().change_scene_to_packed(get_parent().default_continent)
 			Global.selected_level_settings = level_settings
+			
+			Signals.emit_signal("level_entry_animation_finished")
