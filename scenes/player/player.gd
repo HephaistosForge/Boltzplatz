@@ -20,6 +20,8 @@ func _ready() -> void:
 			self.add_to_group("Player_Left")
 		Rod.PLAYER_TYPE.PLAYER_RIGHT:
 			self.add_to_group("Player_Right")
+		_:
+			printerr("_ready: Unknown Player Type" + str(player_type))
 
 
 func add_point():
@@ -28,14 +30,18 @@ func add_point():
 			score.add_one_to_player_left()
 		Rod.PLAYER_TYPE.PLAYER_RIGHT:
 			score.add_one_to_player_right()
+		_:
+			printerr("add_point: Unknown Player Type" + str(player_type))
 
 
 func remove_point():
 	match player_type:
 		Rod.PLAYER_TYPE.PLAYER_LEFT:
-			pass
+			score.remove_one_from_player_left()
 		Rod.PLAYER_TYPE.PLAYER_RIGHT:
-			pass
+			score.remove_one_from_player_right()
+		_:
+			printerr("remove_point: Unknown Player Type" + str(player_type))
 
 
 func reduce_size(time):
