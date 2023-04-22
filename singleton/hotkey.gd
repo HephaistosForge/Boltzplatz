@@ -27,6 +27,7 @@ func _process(_delta):
 		
 		stop__all_sfx()
 		get_tree().change_scene_to_file(MAIN_MENU_SCENE_PATH)
+		Signals.emit_signal("level_entry_animation_finished")
 
 
 func stop__all_sfx():
