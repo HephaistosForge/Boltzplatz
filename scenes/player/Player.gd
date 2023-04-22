@@ -33,9 +33,9 @@ func add_point():
 func remove_point():
 	match player_type:
 		Rod.PLAYER_TYPE.PLAYER_LEFT:
-			pass
+			score.remove_one_from_player_left()
 		Rod.PLAYER_TYPE.PLAYER_RIGHT:
-			pass
+			score.remove_one_from_player_right()
 
 
 func reduce_size(time):
