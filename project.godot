@@ -19,6 +19,8 @@ boot_splash/image="res://icon.png"
 [autoload]
 
 Global="*res://singleton/global.gd"
+Hotkey="*res://singleton/hotkey.gd"
+Signals="*res://singleton/signals.gd"
 
 [display]
 
