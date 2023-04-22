@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc4ft5f0g0mm2"]
+[gd_scene load_steps=4 format=3 uid="uid://bulm8la1xprhw"]
 
-[ext_resource type="Theme" uid="uid://c1kdyrtvrsdx2" path="res://scenes/themes/theme.tres" id="1_jjd6m"]
 [ext_resource type="Script" path="res://scenes/score/score.gd" id="1_pn7yh"]
-[ext_resource type="LabelSettings" uid="uid://cxhfcmn8251s1" path="res://scenes/themes/score_label_settings.tres" id="3_xp5py"]
+[ext_resource type="Theme" uid="uid://b71lohjhqisnk" path="res://assets/themes/theme.tres" id="1_veg1c"]
+[ext_resource type="LabelSettings" uid="uid://cxhfcmn8251s1" path="res://assets/themes/score_label_settings.tres" id="3_y88uv"]
 
 [node name="Score" type="Control" groups=["Score"]]
 z_index = 100
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_jjd6m")
+theme = ExtResource("1_veg1c")
 script = ExtResource("1_pn7yh")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -27,16 +27,16 @@ alignment = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "0"
-label_settings = ExtResource("3_xp5py")
+label_settings = ExtResource("3_y88uv")
 
 [node name="LabelDivider" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = ":"
-label_settings = ExtResource("3_xp5py")
+label_settings = ExtResource("3_y88uv")
 
 [node name="LabelPlayerRight" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "0"
-label_settings = ExtResource("3_xp5py")
+label_settings = ExtResource("3_y88uv")

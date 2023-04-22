@@ -28,28 +28,28 @@ shadow_size = 24
 shadow_color = Color(0.223529, 0.00392157, 0.105882, 0.462745)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shxfx"]
-size = Vector2(689.269, 508.255)
+size = Vector2(603.871, 518.503)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvv2b"]
-radius = 199.615
-height = 399.231
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg3ld"]
+size = Vector2(362, 339)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v72ym"]
-size = Vector2(383, 333)
+size = Vector2(380, 333)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_jkvqx"]
-radius = 152.398
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iieqn"]
+radius = 90.956
+height = 354.762
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xaaui"]
 radius = 86.8385
-height = 393.966
+height = 372.724
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dle8"]
 size = Vector2(137.015, 113)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yo1jj"]
-radius = 3.97892
-height = 180.158
+radius = 3.58014
+height = 167.967
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -127,6 +127,8 @@ texture = ExtResource("8_5bll3")
 offset = Vector2(11.2251, 14.3182)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="asia"]
+position = Vector2(24.0511, 7.6619)
+rotation = 0.118682
 scale = Vector2(0.993807, 0.973921)
 shape = SubResource("RectangleShape2D_shxfx")
 
@@ -140,7 +142,8 @@ scale = Vector2(1.87081, 1.67619)
 texture = ExtResource("9_b8qbb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="africa"]
-shape = SubResource("CapsuleShape2D_nvv2b")
+position = Vector2(-12, -4.5)
+shape = SubResource("RectangleShape2D_lg3ld")
 
 [node name="europe" type="Area2D" parent="."]
 position = Vector2(1020, 244)
@@ -153,7 +156,7 @@ scale = Vector2(1.87081, 1.67619)
 texture = ExtResource("7_0cckr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="europe"]
-position = Vector2(-15.5, -20.5)
+position = Vector2(-14, -20.5)
 shape = SubResource("RectangleShape2D_v72ym")
 
 [node name="australia" type="Area2D" parent="."]
@@ -166,8 +169,9 @@ scale = Vector2(1.87081, 1.67619)
 texture = ExtResource("10_p76nm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="australia"]
-position = Vector2(-2, 13)
-shape = SubResource("CircleShape2D_jkvqx")
+position = Vector2(10, 2)
+rotation = -1.43641
+shape = SubResource("CapsuleShape2D_iieqn")
 
 [node name="south_america" type="Area2D" parent="."]
 position = Vector2(542, 708)
@@ -180,6 +184,7 @@ scale = Vector2(1.87081, 1.67619)
 texture = ExtResource("11_d2suc")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="south_america"]
+position = Vector2(-29.1368, -0.991272)
 scale = Vector2(2, 1)
 shape = SubResource("CapsuleShape2D_xaaui")
 
@@ -208,7 +213,7 @@ texture = ExtResource("13_8jprx")
 offset = Vector2(25.0963, -36)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="north_america"]
-position = Vector2(24, -82)
+position = Vector2(61, -74)
 scale = Vector2(110.331, 2.95296)
 shape = SubResource("CapsuleShape2D_yo1jj")
 

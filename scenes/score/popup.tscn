@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcmoetib6jnti"]
+[gd_scene load_steps=6 format=3 uid="uid://bubj2rc7h2t4c"]
 
-[ext_resource type="Theme" uid="uid://d0nyo18rwdv00" path="res://scenes/themes/popup.tres" id="1_u7sv1"]
+[ext_resource type="Theme" uid="uid://d0nyo18rwdv00" path="res://assets/themes/popup.tres" id="1_u7sv1"]
 [ext_resource type="Script" path="res://scenes/score/popup.gd" id="2_4ht35"]
-[ext_resource type="Theme" uid="uid://c1kdyrtvrsdx2" path="res://scenes/themes/theme.tres" id="3_fwnjl"]
-[ext_resource type="FontFile" uid="uid://bbav1ppiqin73" path="res://scenes/themes/Silkscreen/Silkscreen-Bold.ttf" id="4_0pgv5"]
+[ext_resource type="Theme" uid="uid://b71lohjhqisnk" path="res://assets/themes/theme.tres" id="3_fwnjl"]
+[ext_resource type="FontFile" uid="uid://bbav1ppiqin73" path="res://assets/themes/Silkscreen/Silkscreen-Bold.ttf" id="4_0pgv5"]
 
 [sub_resource type="Theme" id="Theme_r1es8"]
 

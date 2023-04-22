@@ -1,6 +1,6 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c1kdyrtvrsdx2"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b71lohjhqisnk"]
 
-[ext_resource type="FontFile" uid="uid://dyi5n4nffgj0l" path="res://scenes/themes/Silkscreen/Silkscreen-Regular.ttf" id="1_svln5"]
+[ext_resource type="FontFile" uid="uid://dyi5n4nffgj0l" path="res://assets/themes/Silkscreen/Silkscreen-Regular.ttf" id="1_svln5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28iro"]
 bg_color = Color(0.933333, 0.933333, 0.933333, 0)

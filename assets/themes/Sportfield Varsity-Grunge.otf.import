@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dqqwo6spgxssr"
-path="res://.godot/imported/Sportfield Varsity-Grunge.otf-458f549e893a9c34837b53c3055b43c4.fontdata"
+path="res://.godot/imported/Sportfield Varsity-Grunge.otf-495441ae9232825c407ca7214a578893.fontdata"
 
 [deps]
 
-source_file="res://scenes/themes/Sportfield Varsity-Grunge.otf"
-dest_files=["res://.godot/imported/Sportfield Varsity-Grunge.otf-458f549e893a9c34837b53c3055b43c4.fontdata"]
+source_file="res://assets/themes/Sportfield Varsity-Grunge.otf"
+dest_files=["res://.godot/imported/Sportfield Varsity-Grunge.otf-495441ae9232825c407ca7214a578893.fontdata"]
 
 [params]
 

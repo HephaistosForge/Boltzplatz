@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://deyqnscicpsfn"]
+[gd_scene load_steps=3 format=3 uid="uid://dj0kvr38d22i0"]
 
-[ext_resource type="Theme" uid="uid://c1kdyrtvrsdx2" path="res://scenes/themes/theme.tres" id="1_85fc8"]
-[ext_resource type="LabelSettings" uid="uid://cxhfcmn8251s1" path="res://scenes/themes/score_label_settings.tres" id="2_2shuv"]
+[ext_resource type="Theme" uid="uid://b71lohjhqisnk" path="res://assets/themes/theme.tres" id="1_85fc8"]
+[ext_resource type="LabelSettings" uid="uid://cxhfcmn8251s1" path="res://assets/themes/score_label_settings.tres" id="2_2shuv"]
 
 [node name="CenterContainer" type="CenterContainer"]
 z_index = 500
