@@ -50,3 +50,5 @@ func _play_return_to_menu_tween() -> void:
 	# Remove now invisible playfield
 	await last_animation.finished
 	rect.queue_free()
+	
+	Signals.emit_signal("level_exit_animation_finished")

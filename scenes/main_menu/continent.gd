@@ -16,7 +16,6 @@ func _on_mouse_exited():
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and not get_parent().ball_was_kicked:
 		if event.button_index == MOUSE_BUTTON_MASK_LEFT and event.pressed:
-			
 			Signals.emit_signal("level_entry_animation_started")
 			
 			get_parent().get_node("AudioWind").play()

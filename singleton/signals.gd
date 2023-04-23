@@ -2,3 +2,5 @@ extends Node
 
 signal level_entry_animation_started
 signal level_entry_animation_finished
+signal level_exit_animation_started
+signal level_exit_animation_finished
