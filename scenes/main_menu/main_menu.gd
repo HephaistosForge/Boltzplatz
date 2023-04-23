@@ -31,7 +31,8 @@ func _play_return_to_menu_tween() -> void:
 	var playfield_fade_tween = create_tween()
 	var rect = Global._create_playfield_texture()
 	rect.position = Global.continent_position - rect.size * rect.scale / 2
-	var fade_playfield = playfield_fade_tween.parallel().tween_property(rect, "modulate", Color(1.0, 1.0, 1.0, 0.0), FADE_OUT_ANIMATION_DURATION) \
+	
+	playfield_fade_tween.parallel().tween_property(rect, "modulate", Color(1.0, 1.0, 1.0, 0.0), FADE_OUT_ANIMATION_DURATION) \
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	
 	# Fade modulate of continent that was previously played on
