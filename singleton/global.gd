@@ -5,6 +5,8 @@ var camera_props_before_change_to_field: Dictionary = {
 	"position": Vector2.ZERO
 }
 
+var continent_position = Vector2.ZERO
+
 var has_entered_continent := false
 
 enum LEVEL_SETTINGS {
@@ -137,6 +139,16 @@ func play_random_from_list(list):
 
 
 var selected_level_settings: LEVEL_SETTINGS
+
+
+func _create_playfield_texture() -> TextureRect:
+	var field_texture = self.level_to_texture[self.selected_level_settings]
+	var rect = TextureRect.new()
+	rect.texture = field_texture
+	rect.scale = Vector2.ONE / 32
+	get_parent().add_child(rect)
+	
+	return rect
 
 
 func create_audio_stream_with_random_pitch(stream: AudioStream, upper_limit: float, lower_limit: float) -> void:

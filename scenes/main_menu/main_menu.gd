@@ -2,6 +2,8 @@ extends Control
 
 const default_continent = preload("res://world.tscn")
 
+@export var FADE_OUT_ANIMATION_DURATION = .25
+
 var ball_was_kicked = false
 
 
@@ -16,21 +18,35 @@ func _play_return_to_menu_tween() -> void:
 	camera.zoom = Global.camera_props_before_change_to_field["zoom"]
 	camera.position = Global.camera_props_before_change_to_field["position"]
 	
-	var reverse_tween = create_tween()
-	reverse_tween.tween_property(camera, "zoom", Vector2.ONE, .5) \
-		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
-	reverse_tween.parallel().tween_property(camera, "position", Vector2(0, 0), .5) \
-		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
-	
-	# Fade modulate of continent that was previously played on
+	# Get continent that was previously played on
+	var continent
 	for child in get_children():
 		if child.name == Global.current_continent:
-			child.modulate = Color(.3, .1, .1)
-			reverse_tween.parallel().tween_property(child, "modulate", Color(.6, .4, .4), .25) \
-				.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
-			reverse_tween.parallel().tween_property(child, "modulate", Color(.9, .7, .7), .25) \
-				.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
-			reverse_tween.parallel().tween_property(child, "modulate", Color(1.0, 1.0, 1.0), .25) \
-				.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
-			
+			continent = child
 			continue
+	
+	continent.modulate = Color(.3, .1, .1)
+	
+	# Playfield fade out
+	var playfield_fade_tween = create_tween()
+	var rect = Global._create_playfield_texture()
+	rect.position = Global.continent_position - rect.size * rect.scale / 2
+	var fade_playfield = playfield_fade_tween.parallel().tween_property(rect, "modulate", Color(1.0, 1.0, 1.0, 0.0), FADE_OUT_ANIMATION_DURATION) \
+		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	
+	# Fade modulate of continent that was previously played on
+	playfield_fade_tween.parallel().tween_property(continent, "modulate", Color(.6, .4, .4), FADE_OUT_ANIMATION_DURATION) \
+		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+	playfield_fade_tween.parallel().tween_property(continent, "modulate", Color(.9, .7, .7), FADE_OUT_ANIMATION_DURATION) \
+		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+	playfield_fade_tween.parallel().tween_property(continent, "modulate", Color(1.0, 1.0, 1.0), FADE_OUT_ANIMATION_DURATION) \
+		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+	
+	playfield_fade_tween.tween_property(camera, "zoom", Vector2.ONE, FADE_OUT_ANIMATION_DURATION) \
+		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)
+	var last_animation = playfield_fade_tween.parallel().tween_property(camera, "position", Vector2(0, 0), FADE_OUT_ANIMATION_DURATION) \
+		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
+	
+	# Remove now invisible playfield
+	await last_animation.finished
+	rect.queue_free()

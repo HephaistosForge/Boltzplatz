@@ -14,7 +14,6 @@ func _on_mouse_exited():
 
 
 func _on_input_event(_viewport, event, _shape_idx):
-	
 	if event is InputEventMouseButton and not get_parent().ball_was_kicked:
 		if event.button_index == MOUSE_BUTTON_MASK_LEFT and event.pressed:
 			
@@ -32,7 +31,6 @@ func _on_input_event(_viewport, event, _shape_idx):
 			Global.camera_props_before_change_to_field["position"] = camera.position
 			
 			get_tree().change_scene_to_packed(get_parent().default_continent)
-			Global.selected_level_settings = level_settings
 			
 			Signals.emit_signal("level_entry_animation_finished")
 
@@ -96,8 +94,13 @@ func _play_switch_to_field_tween() -> Tween:
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 	continent_tween.parallel().tween_property(self, "modulate", Color(.3, .1, .1), 0.25) \
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-		
-	var rect = _create_field_background()
+	
+	Global.selected_level_settings = level_settings
+	var rect = Global._create_playfield_texture()
+	rect.modulate = Color(1, 1, 1, 0)
+	rect.position = position - rect.size * rect.scale / 2
+	Global.continent_position = self.position
+	
 	continent_tween.parallel().tween_property(rect, "modulate", Color(1, 1, 1), 0.25) \
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 		
@@ -108,16 +111,3 @@ func _play_switch_to_field_tween() -> Tween:
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	
 	return continent_tween
-
-
-func _create_field_background() -> TextureRect:
-	var field_texture = Global.level_to_texture[level_settings]
-	var rect = TextureRect.new()
-	rect.texture = field_texture
-	rect.modulate = Color(1, 1, 1, 0)
-	rect.scale = Vector2.ONE / 32
-	get_parent().add_child(rect)
-	rect.position = position - rect.size * rect.scale / 2
-	
-	return rect
-		
