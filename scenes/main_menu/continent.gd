@@ -27,6 +27,10 @@ func _on_input_event(_viewport, event, _shape_idx):
 			var continent_tween = _play_switch_to_field_tween()
 			await continent_tween.finished
 			
+			var camera: Camera2D = get_parent().get_node("Camera2D")
+			Global.camera_props_before_change_to_field["zoom"] = camera.zoom
+			Global.camera_props_before_change_to_field["position"] = camera.position
+			
 			get_tree().change_scene_to_packed(get_parent().default_continent)
 			Global.selected_level_settings = level_settings
 			

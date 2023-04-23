@@ -1,5 +1,12 @@
 extends Node
 
+var camera_props_before_change_to_field: Dictionary = {
+	"zoom": Vector2.ONE,
+	"position": Vector2.ZERO
+}
+
+var has_entered_continent := false
+
 enum LEVEL_SETTINGS {
 	DEFAULT,
 	DEFAULT2,
@@ -99,6 +106,14 @@ var commentary_pregame = {
 	"europe": preload("res://assets/commentary/opening/europa.mp3"),
 	"africa": preload("res://assets/commentary/opening/afrika.mp3"),
 }
+
+func _ready():
+	Signals.level_entry_animation_finished.connect(_on_level_entry_animation_finished)
+
+
+func _on_level_entry_animation_finished() -> void:
+	has_entered_continent = true
+
 
 func play_commentary_random():
 	return play_random_from_list(commentary_random)
