@@ -46,20 +46,16 @@ func stop__all_sfx():
 
 
 func _on_level_entry_animation_started() -> void:
-	print("_on_level_entry_animation_started")
 	level_entry_animation_active = true
 
 
 func _on_level_entry_animation_finished() -> void:
-	print("_on_level_entry_animation_finished")
 	level_entry_animation_active = false
 
 
 func _on_level_exit_animation_started() -> void:
-	print("_on_level_exit_animation_started")
 	level_exit_animation_active = true
 
 
 func _on_level_exit_animation_finished() -> void:
-	print("_on_level_exit_animation_finished")
 	level_exit_animation_active = false
