@@ -25,14 +25,12 @@ func _process(_delta):
 		if get_tree().current_scene.scene_file_path == MAIN_MENU_SCENE_PATH and not level_entry_animation_active:
 			get_tree().quit()
 		
-		stop__all_sfx()
-		
 		var animation_player := get_parent().get_node("World/AnimationPlayer")
 		animation_player.play("slide_out")
 		await animation_player.animation_finished
 		
+		stop__all_sfx()
 		get_tree().change_scene_to_file(MAIN_MENU_SCENE_PATH)
-		
 		Signals.emit_signal("level_entry_animation_finished")
 
 
