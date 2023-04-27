@@ -94,6 +94,7 @@ func _play_switch_to_field_tween() -> Tween:
 	continent_tween.parallel().tween_property(self, "modulate", Color(.3, .1, .1), 0.25) \
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	
+	# Create playfield texture
 	Global.selected_level_settings = level_settings
 	var rect = Global._create_playfield_texture()
 	rect.modulate = Color(1, 1, 1, 0)

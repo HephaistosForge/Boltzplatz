@@ -1,24 +1,5 @@
 extends Node
 
-var camera_props_before_change_to_field: Dictionary = {
-	"zoom": Vector2.ONE,
-	"position": Vector2.ZERO
-}
-
-var continent_position = Vector2.ZERO
-
-var has_entered_continent := false
-
-enum LEVEL_SETTINGS {
-	DEFAULT,
-	DEFAULT2,
-	DEFAULT_NO_GOAL,
-	STREET,
-	MUD,
-	ICE,
-	SAND
-}
-
 @export var level_to_texture = {
 	LEVEL_SETTINGS.DEFAULT: preload("res://assets/backgrounds/Spielfeld_grass_stripes.png"),
 	LEVEL_SETTINGS.DEFAULT2: preload("res://assets/backgrounds/Spielfeld_grass_stripes2.png"),
@@ -31,9 +12,15 @@ enum LEVEL_SETTINGS {
 
 @onready var commentary_player = _create_new_audio_stream()
 
+var camera_props_before_change_to_field: Dictionary = {
+	"zoom": Vector2.ONE,
+	"position": Vector2.ZERO
+}
+var continent_position = Vector2.ZERO
+var has_entered_continent := false
 var current_continent = "europe"
-
 var game_finished = false
+var selected_level_settings: LEVEL_SETTINGS
 
 var commentary_random = [
 	preload("res://assets/commentary/random/random01.mp3"),
@@ -109,6 +96,17 @@ var commentary_pregame = {
 	"africa": preload("res://assets/commentary/opening/afrika.mp3"),
 }
 
+enum LEVEL_SETTINGS {
+	DEFAULT,
+	DEFAULT2,
+	DEFAULT_NO_GOAL,
+	STREET,
+	MUD,
+	ICE,
+	SAND
+}
+
+
 func _ready():
 	Signals.level_entry_animation_finished.connect(_on_level_entry_animation_finished)
 
@@ -119,18 +117,22 @@ func _on_level_entry_animation_finished() -> void:
 
 func play_commentary_random():
 	return play_random_from_list(commentary_random)
-	
+
+
 func play_commentary_goal():
 	return play_random_from_list(commentary_goal)
-	
+
+
 func play_commentary_close():
 	return play_random_from_list(commentary_close)
-	
+
+
 func play_commentary_pregame():
 	if current_continent in commentary_pregame:
 		return create_audio_stream(commentary_pregame[current_continent], commentary_player)
 	return null
-	
+
+
 func play_random_from_list(list):
 	if len(list) == 0:
 		return null
@@ -138,12 +140,10 @@ func play_random_from_list(list):
 	return create_audio_stream(audio, commentary_player)
 
 
-var selected_level_settings: LEVEL_SETTINGS
-
-
 func _create_playfield_texture() -> TextureRect:
 	var field_texture = self.level_to_texture[self.selected_level_settings]
 	var rect = TextureRect.new()
+	
 	rect.texture = field_texture
 	rect.scale = Vector2.ONE / 32
 	get_parent().add_child(rect)
@@ -161,6 +161,7 @@ func create_audito_stream_with_custom_db(stream: AudioStream, db) -> void:
 	var sfx = _create_new_audio_stream()
 	sfx.volume_db = db
 	create_audio_stream(stream, sfx)
+
 
 func create_audio_stream_with_random_pitch_and_db(stream: AudioStream, upper_limit: float, lower_limit: float, db) -> void:
 	var sfx = _create_new_audio_stream()
@@ -180,4 +181,3 @@ func _create_new_audio_stream() -> AudioStreamPlayer2D:
 	add_child(sfx)
 	sfx.add_to_group("sfx")
 	return sfx
-	
