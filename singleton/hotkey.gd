@@ -3,11 +3,15 @@ extends Node
 const MAIN_MENU_SCENE_PATH := "res://scenes/main_menu/main_menu.tscn"
 
 var level_entry_animation_active := false
+var level_exit_animation_active := false
 
 
 func _ready() -> void:
 	Signals.level_entry_animation_started.connect(_on_level_entry_animation_started)
 	Signals.level_entry_animation_finished.connect(_on_level_entry_animation_finished)
+	
+	Signals.level_exit_animation_started.connect(_on_level_exit_animation_started)
+	Signals.level_exit_animation_finished.connect(_on_level_exit_animation_finished)
 
 
 func _process(_delta):
@@ -22,12 +26,17 @@ func _process(_delta):
 
 
 	if Input.is_action_just_pressed("exit"):
-		if get_tree().current_scene.scene_file_path == MAIN_MENU_SCENE_PATH and not level_entry_animation_active:
-			get_tree().quit()
-		
-		stop__all_sfx()
-		get_tree().change_scene_to_file(MAIN_MENU_SCENE_PATH)
-		Signals.emit_signal("level_entry_animation_finished")
+		if not level_entry_animation_active and not level_exit_animation_active:
+			if get_tree().current_scene.scene_file_path == MAIN_MENU_SCENE_PATH:
+				get_tree().quit()
+			else:
+				Signals.emit_signal("level_exit_animation_started")
+				var animation_player := get_parent().get_node("World/AnimationPlayer")
+				animation_player.play("slide_out")
+				await animation_player.animation_finished
+				
+				stop__all_sfx()
+				get_tree().change_scene_to_file(MAIN_MENU_SCENE_PATH)
 
 
 func stop__all_sfx():
@@ -42,3 +51,11 @@ func _on_level_entry_animation_started() -> void:
 
 func _on_level_entry_animation_finished() -> void:
 	level_entry_animation_active = false
+
+
+func _on_level_exit_animation_started() -> void:
+	level_exit_animation_active = true
+
+
+func _on_level_exit_animation_finished() -> void:
+	level_exit_animation_active = false
