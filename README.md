@@ -16,3 +16,6 @@ Chaos unfolds as players activate power-ups to secure the victory for their team
 | Move Up     |   W             | Arrow Up         |
 | Move Down   |   S             | Arrow Down       |
 | Kick        |  Space          | Enter            |
+
+
+Licensed under GPL-3.0
