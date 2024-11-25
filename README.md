@@ -1,30 +1,13 @@
-# MV-Ostergamejam2
-## 2D Tischkicker
+# Boltzplatz
+## [Play Online Now!](https://brutenis.net/boltzplatz)
 
-Tag 1
-Robert+Matthias
+A table soccer-inspired game where two players compete in local multiplayer mode.
+The game features a unique stadium for each continent, with distinct pitch attributes, visual environments, commentator lines, and more.
+Chaos unfolds as players activate power-ups to secure the victory for their team.
 
 ## Controls
-### Player Left
-Movement: W, S
-
-Kick: Space
-
-### Player Right
-Movement: Arrow Up, ~ Down
-
-Kick: Enter
-
-### Sonstiges
-
-Reset Ball Debug: R
-
-Change Level on the fly: Alt (durchschalten)
-
-### Main Menu
-
-Spieler-Figur anklicken, um ein Spiel zu starten
-
-### TODOs
-
-[Team 2 Todos #8](https://github.com/HephaistosForge/MV-Ostergamejam2/issues/8)
+| Action      | Player 1 (Left) | Player 2 (Right) |
+| ----------- | ------          | ----             | 
+| Move Up     |   W             | Arrow Up         |
+| Move Down   |   S             | Arrow Down       |
+| Kick        |  Space          | Enter            |
